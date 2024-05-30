@@ -4,9 +4,8 @@
 Wearable fitness que va más allá de simplemente registrar datos de actividad física. Este dispositivo no solo mide tu rendimiento, sino que te motiva y te ayuda a alcanzar tus objetivos de manera inteligente y personalizada.
 
 ## Software empleado
-- **React** - Licencia: MIT
-- **Node.js** - Licencia: MIT
-- **Express** - Licencia: MIT
+- **React Native** - Licencia: MIT
+- **Arduino IDE** - Licencia: MIT
 
 ## Hardware
 - **Acelerómetro**
@@ -53,15 +52,19 @@ Wearable fitness que va más allá de simplemente registrar datos de actividad f
   - **Cantidad:** 1
 
 ## Historias de usuario épicas
-
+1.	Monitorear la cantidad de pasos caminados por el usuario y mostrarlas, además de poder configurar un objetivo de pasos.
+2.	Monitorear el ritmo cardiaco del usuario durante diferentes actividades físicas y alertar si el ritmo cardiaco es muy alto. 
+3.	Monitorear la temperatura corporal del usuario y avisar si la temperatura corporal es muy alta.
 
 ## Fotografía del prototipo
 
-## Arquirectura 
+## Arquitectura
 
 ## Captura Kanban
 
 ### Sprint 1
+![Sprint 1 - Tablero](https://github.com/rodrigovm10/wearable/assets/104101668/c748fbd1-87da-4874-a1c7-0137aec2078c)
+![Sprint 2 - Tablero](https://github.com/rodrigovm10/wearable/assets/104101668/f8292947-bfd3-4e6c-bf9d-68c855fe9b24)
 
 ## Circuito diseñado
 
