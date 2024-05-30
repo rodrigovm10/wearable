@@ -54,6 +54,7 @@ Wearable fitness que va más allá de simplemente registrar datos de actividad f
 
 ## Historias de usuario épicas
 
+
 ## Fotografía del prototipo
 
 ## Arquirectura 
