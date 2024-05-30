@@ -1,4 +1,4 @@
-# Wearable Fit
+# Fit Wearable
 
 ## Visión
 Wearable fitness que va más allá de simplemente registrar datos de actividad física. Este dispositivo no solo mide tu rendimiento, sino que te motiva y te ayuda a alcanzar tus objetivos de manera inteligente y personalizada.
@@ -11,7 +11,7 @@ Wearable fitness que va más allá de simplemente registrar datos de actividad f
 ## Hardware
 - **Acelerómetro**
   - **Nombre:** Acelerómetro MPU6050
-  - **Imagen:** ![Acelerómetro MPU6050](ruta/a/imagen.png)
+  - **Imagen:** ![Acelerómetro MPU6050](https://www.mactronica.com.co/giroscopio-acelerometro-mpu6050-gy-521)
   - **Descripción:** Mide la aceleración en tres ejes (X, Y, Z) para rastrear movimientos y detectar actividades físicas.
   - **Cantidad:** 1
 
