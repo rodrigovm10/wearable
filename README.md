@@ -8,6 +8,7 @@ Wearable fitness que va más allá de simplemente registrar datos de actividad f
 - **Arduino IDE** - Licencia: MIT
 
 ## Hardware
+### Sensores
 - **Acelerómetro**
   - **Nombre:** Acelerómetro
   - **Imagen:**  <br><img src="https://sonrobots.com/wp-content/uploads/2021/01/ADXL335-340x299.jpg" alt="Acelerómetro" width="300"/>
@@ -26,7 +27,7 @@ Wearable fitness que va más allá de simplemente registrar datos de actividad f
   - **Descripción:** Mide la temperatura del cuerpo del usuario en grados Celsius (°C).
   - **Cantidad:** 1
 
-## Actuadores
+### Actuadores
 - **Vibrador**
   - **Nombre:** Motor Vibrador
   - **Imagen:**  <br><img src="https://ultra-lab.net/wp-content/uploads/2017/12/VibrationMotor-01-L.jpg" alt="Motor Vibrador" width="300"/>
