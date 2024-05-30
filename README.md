@@ -64,7 +64,11 @@ Wearable fitness que va más allá de simplemente registrar datos de actividad f
 
 ### Sprint 1
 ![Sprint 1 - Tablero](https://github.com/rodrigovm10/wearable/assets/104101668/c748fbd1-87da-4874-a1c7-0137aec2078c)
+
+### Sprint 2
 ![Sprint 2 - Tablero](https://github.com/rodrigovm10/wearable/assets/104101668/f8292947-bfd3-4e6c-bf9d-68c855fe9b24)
+
+### Sprint 2
 
 ## Circuito diseñado
 
