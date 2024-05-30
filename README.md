@@ -48,7 +48,7 @@ Wearable fitness que va más allá de simplemente registrar datos de actividad f
 
 - **Buzzer**
   - **Nombre:** Buzzer
-  - **Imagen:** ![Buzzer](https://www.electronicaembajadores.com/Datos/fotos/articulos/grandes/zb/zbpz/zbpzs02.jpg)
+  - **Imagen:** <img src="https://example.com/accelerometer.png" alt="Acelerómetro MPU6050" width="300"/>
   - **Descripción:** Emite sonidos para alertar o notificar al usuario.
   - **Cantidad:** 1
 
