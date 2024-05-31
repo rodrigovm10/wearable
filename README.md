@@ -57,6 +57,20 @@ Wearable fitness que va más allá de simplemente registrar datos de actividad f
 2.	Monitorear el ritmo cardiaco del usuario durante diferentes actividades físicas y alertar si el ritmo cardiaco es muy alto. 
 3.	Monitorear la temperatura corporal del usuario y avisar si la temperatura corporal es muy alta.
 
+## Tabla de Requisitos del Proyecto 'Fit Wearable'
+
+| ID  | Como un   | Quiero poder                                         | Para                                           | Con la prioridad de | En el sprint número | Definición de terminado                                                                                                                                                   |
+|-----|-----------|------------------------------------------------------|------------------------------------------------|---------------------|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1   | Usuario   | Ver la cantidad de pasos caminados en tiempo real    | Monitorear mi actividad física diaria          | Debería tenerlo (Media) | 1                   | **Prueba:** Caminar cierta distancia. **Criterio de aceptación:** Los pasos caminados son contados.                                                                         |
+| 2   | Usuario   | Ver mi ritmo cardiaco                                | Monitorear mi actividad física diaria          | Debe tenerlo (Alta)  | 1                   | **Prueba:** Someter al usuario a caminar, correr y descansar. **Criterio de aceptación:** Mostrar el ritmo cardiaco ante las diferentes situaciones.                        |
+| 3   | Usuario   | Ver mi temperatura corporal                          | Monitorear mi actividad física diaria          | Debe tenerlo (Alta)  | 1                   | **Prueba:** Poner el sensor en una distancia para detectar la temperatura. **Criterio de aceptación:** Mostrar la temperatura del usuario actual.                           |
+| 4   | Usuario   | Monitorear el ritmo cardíaco durante diferentes actividades físicas | Obtener información sobre mi ritmo cardíaco en tiempo real | Se Debe incluir (Alta) | 2                   | **Prueba:** Someter al usuario a caminar, correr y descansar. **Criterio de aceptación:** Mostrar el ritmo cardiaco en la pantalla del wearable en todo momento.             |
+| 5   | Usuario   | Establecer alarmas de ritmo cardíaco                 | Recibir notificaciones en caso de ritmo cardíaco anormal | Se Debería Incluir (Media) | 2                   | **Prueba:** El usuario tiene un ritmo cardiaco alto. **Criterio de aceptación:** Se reciben notificaciones en caso de tener un ritmo cardiaco alto.                         |
+| 6   | Usuario   | Ver un registro histórico de mi ritmo cardiaco       | Seguir la evolución del ritmo cardíaco a lo largo del tiempo | Se puede incluir (baja) | 2                   | **Prueba:** El usuario tiene diferentes actividades durante un periodo de una semana. **Criterio de aceptación:** El usuario visualiza su ritmo cardiaco.                  |
+| 7   | Usuario   | Detectar situaciones de fatiga basadas en los datos de los sensores | Recibir alertas en caso de estrés o fatiga     | Se Debería Incluir (media) | 3                   | **Prueba:** El usuario debe tener una semana o más usando el dispositivo para tener datos almacenados. **Criterio de aceptación:** El usuario recibe alertas en caso de una situación de fatiga. |
+| 8   | Usuario   | Ver estadísticas y reportes de actividad física      | Revisar mi progreso y resultados               | Se debería incluir (media) | 3                   | **Prueba:** Tener la aplicación instalada y conectada al wearable. **Criterio de aceptación:** La aplicación muestra gráficos y resumen de actividad física, ritmo cardiaco y calorías quemadas. |
+
+
 ## Fotografía del prototipo
 
 ## Arquitectura
