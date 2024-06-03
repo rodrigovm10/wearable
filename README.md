@@ -73,6 +73,7 @@ Wearable fitness que va más allá de simplemente registrar datos de actividad f
 ## Fotografía del prototipo
 
 ## Arquitectura
+![Arquitectura](https://github.com/rodrigovm10/wearable/assets/104101668/c8256386-6f8e-49dc-95f6-954479f0e449)
 
 ## Captura Kanban
 
