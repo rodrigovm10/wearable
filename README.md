@@ -1,4 +1,7 @@
 # Fit Wearable
+<div style="text-align: justify;">
+  Este es un texto justificado. Este es un texto justificado. Este es un texto justificado. Este es un texto justificado. Este es un texto justificado. Este es un texto justificado. Este es un texto justificado.
+</div>
 
 ## Visión
 <p style="text-align: justify;">
