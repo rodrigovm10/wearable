@@ -61,7 +61,7 @@ Wearable fitness que va más allá de simplemente registrar datos de actividad f
   - **Descripción:** Cables de conexión Dupont, utilizados para realizar prototipos y conectar diferentes módulos y sensores.
   - **Cantidad:** 30
 
-- **Cable Micro USB **
+- **Cable Micro USB**
   - **Nombre:** Cable Micro USB
   - **Imagen:**  <br><img src="https://m.media-amazon.com/images/I/61+gz2-AA0L._AC_SX569_.jpg" width="300"/>
   - **Descripción:** Cable Micro USB de 1 metro, perfecto para conectar la ESP32 a la computadora, proporcionando una conexión estable para la carga y transferencia de datos
@@ -78,7 +78,13 @@ Wearable fitness que va más allá de simplemente registrar datos de actividad f
   - **Imagen:**  <br><img src="https://m.media-amazon.com/images/I/61KhZCpqmYL._AC_SX425_.jpg" width="300"/>
   - **Descripción:** Kit de soldador para proyectos electrónicos, equipado con un soldador ergonómico, alambre de estaño y una variedad de herramientas para asegurar conexiones firmes y duraderas
   - **Cantidad:** 1
-  
+
+- **Raspberry pi**
+  - **Nombre:** Raspberry pi
+  - **Imagen:**  <br><img src="https://hardzone.es/app/uploads-hardzone.es/2018/06/mejores-carcasas-raspberry-pi-3-model-b.jpg" width="300"/>
+  - **Descripción:** Raspberry Pi, diseñada para hospedar Node-RED y facilitar la creación de flujos de automatización en proyectos IoT, con conectividad expandida y alto rendimiento.
+  - **Cantidad:** 1
+    
 ## Historias de usuario épicas
 1.	Monitorear la cantidad de pasos caminados por el usuario y mostrarlas, además de poder configurar un objetivo de pasos.
 2.	Monitorear el ritmo cardiaco del usuario durante diferentes actividades físicas y alertar si el ritmo cardiaco es muy alto. 
