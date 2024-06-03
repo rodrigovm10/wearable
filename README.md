@@ -133,11 +133,11 @@
 ![Sprint 3 - Tablero](https://github.com/rodrigovm10/wearable/assets/104101668/fdec2a05-5779-423d-a64b-eacc92afcdff)
 
 ## Circuito diseñado
-### Requisito 1 y 2
+### Sensor Pulso
 ![Requisito 1 y 2](https://github.com/rodrigovm10/wearable/assets/104101668/be32d3fd-2640-408b-a074-542a72699945)
-### Requisito 3
+### Sensor Termometro Infrarojo
 ![Requisito 3](https://github.com/rodrigovm10/wearable/assets/104101668/dc430b0a-ed7c-4b42-a138-0944aacae749)
-
+### Sensor Acelerometro
 ![image](https://github.com/rodrigovm10/wearable/assets/104101668/7484440d-d164-42e7-a53d-ae048272bd34)
 
 ## Resultados
