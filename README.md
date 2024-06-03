@@ -68,6 +68,7 @@ Wearable fitness que va más allá de simplemente registrar datos de actividad f
 | 5   | Usuario   | Monitorear los pasos caminado                | Monitorear mi actividad física diaria | Se Debería Incluir (Media) | 2                   | **Prueba:** El usuario tiene pasos caminados. **Criterio de aceptación:** Se visualizan los pasos caminados en tiempo real.                         |
 | 6   | Usuario   | Ver un registro histórico de mi ritmo cardiaco       | Seguir la evolución del ritmo cardíaco a lo largo del tiempo | Se puede incluir (baja) | 2                   | **Prueba:** El usuario tiene diferentes actividades durante un periodo de una semana. **Criterio de aceptación:** El usuario visualiza su ritmo cardiaco.                  |
 | 7   | Usuario   | Ver estadísticas y reportes de actividad física      | Revisar mi progreso y resultados               | Se debería incluir (media) | 3                   | **Prueba:** Tener la aplicación instalada y conectada al wearable. **Criterio de aceptación:** La aplicación muestra gráficos y resumen de actividad física, ritmo cardiaco y calorías quemadas. |
+| 8   | Usuario   | Mandar alerta desde el celular para encontrar el wearable en caso de haberlo perdido.    | Tener localizado el wearable          | Debe Tenerlo (Alta) | 3                   | **Prueba:** Tener lejos el Wearable **Criterio de aceptación:** El buzzer manda sonido hasta que se encuentre el wearable.                                                                         |
 
 
 ## Fotografía del prototipo
