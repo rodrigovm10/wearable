@@ -1,13 +1,13 @@
 # Fit Wearable
 
 ## Visión
-<div style="text-align: justify;">
+<p align="justify"> Your Text 
   Nuestra visión es redefinir la experiencia del ejercicio y las actividades físicas, proporcionando un dispositivo 
    wearable que no solo registre el rendimiento, sino que también motive y guíe a los usuarios de manera 
    personalizada e inteligente. Este dispositivo está diseñado para superar las barreras comunes que enfrentan las 
    personas activas, tales como el monitoreo preciso del rendimiento, la falta de motivación y la dificultad para 
    personalizar sus entrenamientos según sus necesidades individuales a través de una app.
-</div>
+</p>
 
 ## Software empleado
 - **React Native** - Licencia: MIT
