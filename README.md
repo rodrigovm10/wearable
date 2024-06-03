@@ -1,11 +1,11 @@
 # Fit Wearable
 <div style="text-align: justify;">
-  Este es un texto justificado. Este es un texto justificado. Este es un texto justificado. Este es un texto justificado. Este es un texto justificado. Este es un texto justificado. Este es un texto justificado.
+Nuestra visión es redefinir la experiencia del ejercicio y las actividades físicas, proporcionando un dispositivo wearable que no solo registre el rendimiento, sino que también motive y guíe a los usuarios de manera personalizada e inteligente. Este dispositivo está diseñado para superar las barreras comunes que enfrentan las personas activas, tales como el monitoreo preciso del rendimiento, la falta de motivación y la dificultad para personalizar sus entrenamientos según sus necesidades individuales a través de una app.
 </div>
 
 ## Visión
 <p style="text-align: justify;">
-    Nuestra visión es redefinir la experiencia del ejercicio y las actividades físicas, proporcionando un dispositivo wearable que no solo registre el rendimiento, sino que también motive y guíe a los usuarios de manera personalizada e inteligente. Este dispositivo está diseñado para superar las barreras comunes que enfrentan las personas activas, tales como el monitoreo preciso del rendimiento, la falta de motivación y la dificultad para personalizar sus entrenamientos según sus necesidades individuales a través de una app.
+Nuestra visión es redefinir la experiencia del ejercicio y las actividades físicas, proporcionando un dispositivo wearable que no solo registre el rendimiento, sino que también motive y guíe a los usuarios de manera personalizada e inteligente. Este dispositivo está diseñado para superar las barreras comunes que enfrentan las personas activas, tales como el monitoreo preciso del rendimiento, la falta de motivación y la dificultad para personalizar sus entrenamientos según sus necesidades individuales a través de una app.
 </p>
 
 ## Software empleado
