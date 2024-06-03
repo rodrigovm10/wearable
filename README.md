@@ -1,7 +1,7 @@
 # Fit Wearable
 
 ## Visión
-<p align="justify"> Your Text 
+<p align="justify">
   Nuestra visión es redefinir la experiencia del ejercicio y las actividades físicas, proporcionando un dispositivo 
    wearable que no solo registre el rendimiento, sino que también motive y guíe a los usuarios de manera 
    personalizada e inteligente. Este dispositivo está diseñado para superar las barreras comunes que enfrentan las 
