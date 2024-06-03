@@ -88,7 +88,7 @@
 - **Raspberry pi**
   - **Nombre:** Raspberry pi
   - **Imagen:**  <br><img src="https://hardzone.es/app/uploads-hardzone.es/2018/06/mejores-carcasas-raspberry-pi-3-model-b.jpg" width="300"/>
-  - **Descripción:** Raspberry Pi, diseñada para hospedar Node-RED y facilitar la creación de flujos de automatización en proyectos IoT, con conectividad expandida y alto rendimiento.
+  - **Descripción:** Raspberry Pi, diseñada para hospedar Node-RED y facilitar la creación de flujos de automatización en proyectos IoT, con conectividad expandida y alto rendimiento. Requiere conexión a Internet para la configuración y operación de Node-RED.
   - **Cantidad:** 1
     
 ## Historias de usuario épicas
