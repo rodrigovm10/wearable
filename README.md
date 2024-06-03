@@ -69,7 +69,7 @@ Wearable fitness que va más allá de simplemente registrar datos de actividad f
 
 - **Carcasa**
   - **Nombre:** Carcasa
-  - **Imagen:**  <br><img src="https://i.all3dp.com/workers/images/fit=scale-down,w=390,h=219,gravity=0.5x0.5,format=auto/wp-content/uploads/2019/01/03151135/11Raspberry-Pi-4-Case-3DPrinting-Timelapse-%40adafruit-adafruit_Moment-1.jpg" width="300"/>
+  - **Imagen:** <br><img src="https://i.all3dp.com/workers/images/fit=scale-down,w=390,h=219,gravity=0.5x0.5,format=auto/wp-content/uploads/2019/01/03151135/11Raspberry-Pi-4-Case-3DPrinting-Timelapse-%40adafruit-adafruit_Moment-1.jpg" width="300"/>
   - **Descripción:** Carcasa ligera y duradera en impresión 3D para el wearable, optimizada para proteger y alojar todos los sensores y actuadores del dispositivo
   - **Cantidad:** 1
 
@@ -78,7 +78,7 @@ Wearable fitness que va más allá de simplemente registrar datos de actividad f
   - **Imagen:**  <br><img src="https://m.media-amazon.com/images/I/61KhZCpqmYL._AC_SX425_.jpg" width="300"/>
   - **Descripción:** Kit de soldador para proyectos electrónicos, equipado con un soldador ergonómico, alambre de estaño y una variedad de herramientas para asegurar conexiones firmes y duraderas
   - **Cantidad:** 1
-  - 
+  
 ## Historias de usuario épicas
 1.	Monitorear la cantidad de pasos caminados por el usuario y mostrarlas, además de poder configurar un objetivo de pasos.
 2.	Monitorear el ritmo cardiaco del usuario durante diferentes actividades físicas y alertar si el ritmo cardiaco es muy alto. 
