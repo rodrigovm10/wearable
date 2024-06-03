@@ -61,6 +61,8 @@
   - **Descripción:** Emite sonidos para alertar o notificar al usuario.
   - **Cantidad:** 1
 
+### Material Extra
+
 - **Cables Jumplers**
   - **Nombre:** Cables Jumplers
   - **Imagen:**  <br><img src="https://edutron.mx/wp-content/uploads/2022/09/cable-dupont-hembra-a-macho-10cm-20und-600x600.jpg.webp" alt="Acelerómetro" width="300"/>
