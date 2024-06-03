@@ -6,6 +6,9 @@ Wearable fitness que va más allá de simplemente registrar datos de actividad f
 ## Software empleado
 - **React Native** - Licencia: MIT
 - **Arduino IDE** - Licencia: MIT
+- **Node Red** - Licencia: MIT
+- **PostgreSQL** -  Licencia: PostgreSQL License (similar a la licencia MIT) 
+- **Express** - Licencia: MIT
 
 ## Hardware
 ### Sensores
