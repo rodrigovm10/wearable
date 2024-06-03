@@ -1,7 +1,7 @@
 # Fit Wearable
 
 ## Visión
-Wearable fitness que va más allá de simplemente registrar datos de actividad física. Este dispositivo no solo mide tu rendimiento, sino que te motiva y te ayuda a alcanzar tus objetivos de manera inteligente y personalizada.
+Nuestra visión es redefinir la experiencia del ejercicio y las actividades físicas, proporcionando un dispositivo wearable que no solo registre el rendimiento, sino que también motive y guíe a los usuarios de manera personalizada e inteligente. Este dispositivo está diseñado para superar las barreras comunes que enfrentan las personas activas, tales como el monitoreo preciso del rendimiento, la falta de motivación y la dificultad para personalizar sus entrenamientos según sus necesidades individuales a través de una app.
 
 ## Software empleado
 - **React Native** - Licencia: MIT
