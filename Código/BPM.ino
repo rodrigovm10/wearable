@@ -2,7 +2,8 @@
 
 // Variables
 const int PulseWire = 34;      // Pin analógico en la ESP32 donde se conecta el sensor de pulso
-const int LED = 2;             // El LED incorporado en la ESP32, normalmente en el pin 2
+const int LED = 2;  
+const int Buzzer = 4;           // El LED incorporado en la ESP32, normalmente en el pin 2
 int Threshold = 550;           // Umbral para contar una señal como un latido
 
 PulseSensorPlayground pulseSensor;  // Crea una instancia del objeto PulseSensorPlayground
@@ -27,6 +28,12 @@ void loop() {
     Serial.println("♥  A HeartBeat Happened! "); // Si la prueba es "verdadera", imprime un mensaje indicando que ocurrió un latido
     Serial.print("BPM: ");                       // Imprime la frase "BPM: " 
     Serial.println(myBPM);                       // Imprime el valor dentro de myBPM
+
+    if (myBPM < 40 || myBPM > 100) {  // Si el ritmo cardíaco es anormal (fuera del rango normal), activa el buzzer
+      tone(Buzzer, 1000);  // Emite un tono de 1000 Hz en el pin del buzzer
+      delay(1000);         // Mantén el tono por 1 segundo
+      noTone(Buzzer);      // Detén el tono del buzzer
+    }
   }
 
   delay(20);  // Se considera una buena práctica en un sketch simple
