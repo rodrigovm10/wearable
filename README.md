@@ -55,6 +55,30 @@ Wearable fitness que va más allá de simplemente registrar datos de actividad f
   - **Descripción:** Emite sonidos para alertar o notificar al usuario.
   - **Cantidad:** 1
 
+- **Cables Jumplers**
+  - **Nombre:** Cables Jumplers
+  - **Imagen:**  <br><img src="https://edutron.mx/wp-content/uploads/2022/09/cable-dupont-hembra-a-macho-10cm-20und-600x600.jpg.webp" alt="Acelerómetro" width="300"/>
+  - **Descripción:** Cables de conexión Dupont, utilizados para realizar prototipos y conectar diferentes módulos y sensores.
+  - **Cantidad:** 30
+
+- **Cable Micro USB **
+  - **Nombre:** Cable Micro USB
+  - **Imagen:**  <br><img src="https://m.media-amazon.com/images/I/61+gz2-AA0L._AC_SX569_.jpg" width="300"/>
+  - **Descripción:** Cable Micro USB de 1 metro, perfecto para conectar la ESP32 a la computadora, proporcionando una conexión estable para la carga y transferencia de datos
+  - **Cantidad:** 1
+
+- **Carcasa**
+  - **Nombre:** Carcasa
+  - **Imagen:**  <br><img src="https://i.all3dp.com/workers/images/fit=scale-down,w=390,h=219,gravity=0.5x0.5,format=auto/wp-content/uploads/2019/01/03151135/11Raspberry-Pi-4-Case-3DPrinting-Timelapse-%40adafruit-adafruit_Moment-1.jpg" width="300"/>
+  - **Descripción:** Carcasa ligera y duradera en impresión 3D para el wearable, optimizada para proteger y alojar todos los sensores y actuadores del dispositivo
+  - **Cantidad:** 1
+
+- **Kit de soldador**
+  - **Nombre:** Kit de soldador
+  - **Imagen:**  <br><img src="https://m.media-amazon.com/images/I/61KhZCpqmYL._AC_SX425_.jpg" width="300"/>
+  - **Descripción:** Kit de soldador para proyectos electrónicos, equipado con un soldador ergonómico, alambre de estaño y una variedad de herramientas para asegurar conexiones firmes y duraderas
+  - **Cantidad:** 1
+  - 
 ## Historias de usuario épicas
 1.	Monitorear la cantidad de pasos caminados por el usuario y mostrarlas, además de poder configurar un objetivo de pasos.
 2.	Monitorear el ritmo cardiaco del usuario durante diferentes actividades físicas y alertar si el ritmo cardiaco es muy alto. 
