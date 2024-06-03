@@ -36,7 +36,7 @@ Wearable fitness que va más allá de simplemente registrar datos de actividad f
 
 - **Pantalla**
   - **Nombre:** Pantalla OLED 128x64
-  - **Imagen:** <br><img src="https://pigra.com.mx/1106-medium_default/pantalla-oled-13-pulgadas-128x64-i2c.jpg" alt="Pantalla OLED" width="300"/>
+  - **Imagen:** <br><img src="https://ae01.alicdn.com/kf/S3cb69deee6fd4633907194f554407d57f/Pantalla-t-ctil-inteligente-para-Arduino-LVGL-m-dulo-TFT-LCD-RGB-de-4-3-pulgadas.jpg_.webp" alt="Pantalla OLED" width="300"/>
   - **Descripción:** Muestra información relevante del dispositivo, como las métricas de salud y actividad física.
   - **Cantidad:** 1
 
@@ -72,6 +72,7 @@ Wearable fitness que va más allá de simplemente registrar datos de actividad f
 
 
 ## Fotografía del prototipo
+<br> ![image](https://github.com/rodrigovm10/wearable/assets/114689978/0766e0f0-808c-440b-b40a-995d4b8a3176)
 
 ## Arquitectura
 ![Arquitectura](https://github.com/rodrigovm10/wearable/assets/104101668/c8256386-6f8e-49dc-95f6-954479f0e449)
