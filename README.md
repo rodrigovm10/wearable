@@ -88,5 +88,7 @@ Wearable fitness que va más allá de simplemente registrar datos de actividad f
 ## Circuito diseñado
 ### Requisito 1 y 2
 ![Requisito 1 y 2](https://github.com/rodrigovm10/wearable/assets/104101668/be32d3fd-2640-408b-a074-542a72699945)
+### Requisito 3
+![Requisito 3](https://github.com/rodrigovm10/wearable/assets/104101668/dc430b0a-ed7c-4b42-a138-0944aacae749)
 
 ## Resultados
