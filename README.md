@@ -92,3 +92,8 @@ Wearable fitness que va más allá de simplemente registrar datos de actividad f
 ![Requisito 3](https://github.com/rodrigovm10/wearable/assets/104101668/dc430b0a-ed7c-4b42-a138-0944aacae749)
 
 ## Resultados
+Los resultados obtenidos hasta el momento han sido satisfactorios. En los primeros tres requisitos, o en el primer Split, se han cumplido las expectativas previstas.
+Dentro de los primeros dos requisitos se cumplio la funcionalidad de alertar en caso de que el ritmo cardiaco no sea normal en el usaurio.
+Dentro del tercer requisito se consiguio obtener la temperatura, dentro de este requisito se tuvo que soldar los pines al sensor, por lo que fue más tardado de cumplir. Además el soldado no quedo como el esperado por lo que se encuentra flojo, pero se espera corregir esta parte.
+
+Para el siguiente split, se espera seguir con los mismos resultados obtenidos hasta el momento y que todo sea satisfactorio.
