@@ -121,7 +121,8 @@
 <br> ![image](https://github.com/rodrigovm10/wearable/assets/114689978/0766e0f0-808c-440b-b40a-995d4b8a3176)
 
 ## Arquitectura
-![Arquitectura](https://github.com/rodrigovm10/wearable/assets/104101668/c8256386-6f8e-49dc-95f6-954479f0e449)
+![Arquitectura](https://github.com/rodrigovm10/wearable/assets/104101668/e1564e10-d3fd-4400-81a0-11a6fd72c653)
+
 
 ## Captura Kanban
 
