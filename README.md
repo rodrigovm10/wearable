@@ -75,12 +75,6 @@
   - **Descripción:** Cable Micro USB de 1 metro, perfecto para conectar la ESP32 a la computadora, proporcionando una conexión estable para la carga y transferencia de datos
   - **Cantidad:** 1
 
-- **Carcasa**
-  - **Nombre:** Carcasa
-  - **Imagen:** <br><img src="https://i.all3dp.com/workers/images/fit=scale-down,w=390,h=219,gravity=0.5x0.5,format=auto/wp-content/uploads/2019/01/03151135/11Raspberry-Pi-4-Case-3DPrinting-Timelapse-%40adafruit-adafruit_Moment-1.jpg" width="300"/>
-  - **Descripción:** Carcasa ligera y duradera en impresión 3D para el wearable, optimizada para proteger y alojar todos los sensores y actuadores del dispositivo
-  - **Cantidad:** 1
-
 - **Kit de soldador**
   - **Nombre:** Kit de soldador
   - **Imagen:**  <br><img src="https://m.media-amazon.com/images/I/61KhZCpqmYL._AC_SX425_.jpg" width="300"/>
