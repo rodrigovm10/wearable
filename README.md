@@ -45,7 +45,7 @@
 
 - **Pantalla**
   - **Nombre:** Pantalla OLED 128x64
-  - **Imagen:** <br><img src="https://ae01.alicdn.com/kf/S3cb69deee6fd4633907194f554407d57f/Pantalla-t-ctil-inteligente-para-Arduino-LVGL-m-dulo-TFT-LCD-RGB-de-4-3-pulgadas.jpg_.webp" alt="Pantalla OLED" width="300"/>
+  - **Imagen:** <br><img src="https://pigra.com.mx/1106-medium_default/pantalla-oled-13-pulgadas-128x64-i2c.jpg" alt="Pantalla OLED" width="300"/>
   - **Descripción:** Muestra información relevante del dispositivo, como las métricas de salud y actividad física.
   - **Cantidad:** 1
 
