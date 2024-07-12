@@ -49,12 +49,6 @@
   - **Descripción:** Muestra información relevante del dispositivo, como las métricas de salud y actividad física.
   - **Cantidad:** 1
 
-- **LED**
-  - **Nombre:** LED RGB
-  - **Imagen:** <br><img src="https://www.steren.com.mx/media/catalog/product/cache/bb0cad18a6adb5d17b0efd58f4201a2f/image/21726305e/led-de-5-mm-rgb.jpg" alt="LED RGB" width="300"/>
-  - **Descripción:** Señales visuales, como indicaciones de estado o alertas.
-  - **Cantidad:** 1
-
 - **Buzzer**
   - **Nombre:** Buzzer
   - **Imagen:**<br><img src="https://www.electronicaembajadores.com/Datos/fotos/articulos/grandes/zb/zbpz/zbpzs02.jpg" alt="Buzzer" width="300"/>
