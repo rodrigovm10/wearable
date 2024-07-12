@@ -10,12 +10,10 @@
 </p>
 
 ## Software empleado
-- **React Native** - Licencia: MIT
+- **Flutter** - Licencia: MIT
 - **Arduino IDE** - Licencia: MIT
-- **Node Red** - Licencia: MIT
 - **PostgreSQL** -  Licencia: PostgreSQL License (similar a la licencia MIT) 
-- **Express** - Licencia: MIT
-
+- **MQTT** - Licencia: EPL
 ## Hardware
 ### Sensores
 - **Acelerómetro**
