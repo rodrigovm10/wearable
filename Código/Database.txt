@@ -1,0 +1,17 @@
+CREATE TABLE wearable_fit;
+
+CREATE TABLE termometro (
+    id serial PRIMARY KEY,
+    valor double precision NOT NULL,
+    fecha_hora timestamp without time zone NOT NULL
+); 
+CREATE TABLE pasos (
+    id serial PRIMARY KEY,
+    conteo integer NOT NULL,
+    fecha_hora timestamp without time zone NOT NULL
+);
+CREATE TABLE temperatura (
+    id serial PRIMARY KEY,
+    valor double precision NOT NULL,
+    fecha_hora timestamp without time zone NOT NULL
+);
