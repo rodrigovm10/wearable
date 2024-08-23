@@ -14,6 +14,7 @@
 - **Arduino IDE** - Licencia: MIT
 - **PostgreSQL** -  Licencia: PostgreSQL License (similar a la licencia MIT) 
 - **MQTT** - Licencia: EPL
+- **Node-Red** - Licencia: MIT
 ## Hardware
 ### Sensores
 - **Acelerómetro**
@@ -22,10 +23,10 @@
   - **Descripción:** Mide la aceleración en tres ejes (X, Y, Z) para rastrear movimientos y detectar actividades físicas.
   - **Cantidad:** 1
 
-- **Sensor de Frecuencia Cardíaca**
-  - **Nombre:** Sensor de Ritmo Cardíaco
-  - **Imagen:**  <br><img src="https://www.geekfactory.mx/wp-content/uploads/sen0038-sensor-de-pulso-cardiaco1-100x100.jpg" alt="Sensor de Ritmo Cardíaco" width="300"/>
-  - **Descripción:** Mide el ritmo cardíaco en pulsaciones por minuto (bpm).
+- **Sensor Temperatura y Humedad**
+  - **Nombre:** Sensor Temperatura y Humedad
+  - **Imagen:**  <br><img src="https://imgs.search.brave.com/DH26FfhdEHWjqGFNm7ZReO7jmJSvnfbbgOuHcq2TCGM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91ZWxl/Y3Ryb25pY3MuY29t/L3dwLWNvbnRlbnQv/dXBsb2Fkcy9BUjAw/MzNfS1kwMTVfNC5q/cGc" width="300"/>
+  - **Descripción:** Mide la temperatura y humedad
   - **Cantidad:** 1
 
 - **Sensor de Temperatura Corporal**
