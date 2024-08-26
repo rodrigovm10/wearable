@@ -79,9 +79,8 @@ El objetivo general del proyecto Wearable Fit es desarrollar un dispositivo wear
 <br> ![image](https://github.com/rodrigovm10/wearable/assets/114689978/0766e0f0-808c-440b-b40a-995d4b8a3176)
 
 ## Arquitectura
-![Arquitectura](https://github.com/rodrigovm10/wearable/assets/104101668/e1564e10-d3fd-4400-81a0-11a6fd72c653)
 
-![Arquitectura drawio](https://github.com/user-attachments/assets/6d98dba8-ef4c-4dcc-9e7b-8a441fe837b6)
+![Arquitectura-Página-1 drawio](https://github.com/user-attachments/assets/e8ed8dd8-baf3-4937-8bcd-7c872bdc52ff)
 
 
 ## Captura Kanban
