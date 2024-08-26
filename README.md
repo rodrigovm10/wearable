@@ -9,7 +9,7 @@
    personalizar sus entrenamientos según sus necesidades individuales a través de una app.
 </p>
 
-## Objetivo
+## Objetivo general
 <p align="justify">
 El objetivo general del proyecto Wearable Fit es desarrollar un dispositivo wearable y una aplicación para Smart TV que permitan a los usuarios monitorear y mejorar su actividad física y salud en tiempo real, proporcionando una experiencia personalizada y accesible que incluya el registro de pasos y medición de temperatura corporal.
 </p>
@@ -17,16 +17,16 @@ El objetivo general del proyecto Wearable Fit es desarrollar un dispositivo wear
 ## Objetivos especificos
 
 <p align="justify">
-Monitorear la Actividad Física: Desarrollar un sistema que registre y muestre en tiempo real la cantidad de pasos caminados por el usuario, permitiendo establecer metas de actividad diaria.
+- **Monitorear la Actividad Física:** Desarrollar un sistema que registre y muestre en tiempo real la cantidad de pasos caminados por el usuario, permitiendo establecer metas de actividad diaria.
 </p>
 <p align="justify">
-Medición de la Temperatura Corporal: Implementar un sensor que mida la temperatura corporal del usuario y proporcione alertas en caso de que la temperatura supere un rango saludable, asegurando el bienestar durante la actividad física.
+- **Medición de la Temperatura Corporal:** Implementar un sensor que mida la temperatura corporal del usuario y proporcione alertas en caso de que la temperatura supere un rango saludable, asegurando el bienestar durante la actividad física.
 </p>
 <p align="justify">
-Proveer Retroalimentación en Tiempo Real: Integrar un motor vibrador y un buzzer para ofrecer retroalimentación, alertando al usuario sobre metas alcanzadas, condiciones críticas de salud. 
+- **Proveer Retroalimentación en Tiempo Real: **Integrar un motor vibrador y un buzzer para ofrecer retroalimentación, alertando al usuario sobre metas alcanzadas, condiciones críticas de salud. 
 </p>
 <p align="justify">
-Desarrollar una aplicación que permita al usuario acceder de manera cómoda y visual a sus datos de salud y rendimiento físico, brindando una experiencia interactiva y accesible desde el hogar.
+- Desarrollar una aplicación que permita al usuario acceder de manera cómoda y visual a sus datos de salud y rendimiento físico, brindando una experiencia interactiva y accesible desde el hogar.
 </p>
 
 ## Software empleado
