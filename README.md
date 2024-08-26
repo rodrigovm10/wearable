@@ -65,8 +65,7 @@
 
 - **Pila**
 -  - **Nombre:** Cables Jumplers
-   - **Imagen:**  <br><img src="https://http2.mlstatic.com/cable-jumpers-dupont-macho-macho-hembra-hembra-macho-hembra-20cm-40-piezas-para-arduino-y-protoboard-D_NQ_NP_942015- 
-     MLM32557835412_102019-F.jpg" alt="Acelerómetro" width="300"/>
+   - **Imagen:** ![pila](https://github.com/user-attachments/assets/4d1350c6-8ba6-45a4-a824-8efb1114b069)
   - **Descripción:** Cables de conexión Dupont, utilizados para realizar prototipos y conectar diferentes módulos y sensores.
   - **Cantidad:** 1
 
