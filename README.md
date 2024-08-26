@@ -1,4 +1,4 @@
-# Fit Wearable
+ # Fit Wearable
 
 ## Visión
 <p align="justify">
@@ -61,79 +61,6 @@ El objetivo general del proyecto Wearable Fit es desarrollar un dispositivo wear
 | **Kit de soldador**   | <img src="https://m.media-amazon.com/images/I/61KhZCpqmYL._AC_SX425_.jpg" alt="Kit de soldador" width="150"/>                                    | Kit de soldador para proyectos electrónicos, equipado con un soldador ergonómico, alambre de estaño y herramientas.     | 1            |
 | **Protoboard**        | <img src="https://m.media-amazon.com/images/I/61p+QTbMf5L._SX342_.jpg" alt="Protoboard" width="150"/>                                           | Protoboard, utilizada para el prototipado y pruebas de circuitos, permitiendo la conexión temporal sin soldadura.       | 1            |
 
-### Sensores
-- **Acelerómetro**
-  - **Nombre:** Acelerómetro
-  - **Imagen:**  <br><img src="https://sonrobots.com/wp-content/uploads/2021/01/ADXL335-340x299.jpg" alt="Acelerómetro" width="300"/>
-  - **Descripción:** Mide la aceleración en tres ejes (X, Y, Z) para rastrear movimientos y detectar actividades físicas.
-  - **Cantidad:** 1
-
-- **Sensor Temperatura y Humedad**
-  - **Nombre:** Sensor Temperatura y Humedad
-  - **Imagen:**  <br><img src="https://imgs.search.brave.com/DH26FfhdEHWjqGFNm7ZReO7jmJSvnfbbgOuHcq2TCGM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91ZWxl/Y3Ryb25pY3MuY29t/L3dwLWNvbnRlbnQv/dXBsb2Fkcy9BUjAw/MzNfS1kwMTVfNC5q/cGc" width="300"/>
-  - **Descripción:** Mide la temperatura y humedad
-  - **Cantidad:** 1
-
-- **Sensor de Temperatura Corporal**
-  - **Nombre:** Sensor de Temperatura Corporal
-  - **Imagen:**  <br><img src="https://uelectronics.com/wp-content/uploads/2018/08/AR0608-MLX90614_v1.png" alt="Sensor de Temperatura Corporal" width="300"/>
-  - **Descripción:** Mide la temperatura del cuerpo del usuario en grados Celsius (°C).
-  - **Cantidad:** 1
-
-### Actuadores
-- **Vibrador**
-  - **Nombre:** Motor Vibrador
-  - **Imagen:**  <br><img src="https://ultra-lab.net/wp-content/uploads/2017/12/VibrationMotor-01-L.jpg" alt="Motor Vibrador" width="300"/>
-  - **Descripción:** Proporciona retroalimentación al usuario sobre un tramo recorrido.
-  - **Cantidad:** 1
-
-- **Pantalla**
-  - **Nombre:** Pantalla OLED 128x64
-  - **Imagen:** <br><img src="https://pigra.com.mx/1106-medium_default/pantalla-oled-13-pulgadas-128x64-i2c.jpg" alt="Pantalla OLED" width="300"/>
-  - **Descripción:** Muestra información relevante del dispositivo, como las métricas de salud y actividad física.
-  - **Cantidad:** 1
-
-- **Buzzer**
-  - **Nombre:** Buzzer
-  - **Imagen:**<br><img src="https://www.electronicaembajadores.com/Datos/fotos/articulos/grandes/zb/zbpz/zbpzs02.jpg" alt="Buzzer" width="300"/>
-  - **Descripción:** Emite sonidos para alertar o notificar al usuario.
-  - **Cantidad:** 1
-
-### Material Extra
-
-- **Cables Jumplers**
-  - **Nombre:** Cables Jumplers
-  - **Imagen:**   <br><img src="https://github.com/user-attachments/assets/cb167355-1ec3-4e1b-b23e-2fc16109dde3" width="300"/>
-  - **Descripción:** Cables de conexión Dupont, utilizados para realizar prototipos y conectar diferentes módulos y sensores.
-  - **Cantidad:** 30
-
-- **Pila**
--  - **Nombre:** Batería Steren TEL-BAT101
-   - **Imagen:**:  <br><img src="https://github.com/user-attachments/assets/4d1350c6-8ba6-45a4-a824-8efb1114b069" width="300"/>
-  - **Descripción:** Batería Steren TEL-BAT101, utilizada como repuesto en teléfonos inalámbricos para asegurar su funcionamiento continuo
-  - **Cantidad:** 1
-
-- **Cable Micro USB**
-  - **Nombre:** Cable Micro USB
-  - **Imagen:**  <br><img src="https://m.media-amazon.com/images/I/61+gz2-AA0L._AC_SX569_.jpg" width="300"/>
-  - **Descripción:** Cable Micro USB de 1 metro, perfecto para conectar la ESP32 a la computadora, proporcionando una conexión estable para la carga y transferencia de datos
-  - **Cantidad:** 1
-
-- **Kit de soldador**
-  - **Nombre:** Kit de soldador
-  - **Imagen:**  <br><img src="https://m.media-amazon.com/images/I/61KhZCpqmYL._AC_SX425_.jpg" width="300"/>
-  - **Descripción:** Kit de soldador para proyectos electrónicos, equipado con un soldador ergonómico, alambre de estaño y una variedad de herramientas para asegurar conexiones firmes y duraderas
-  - **Cantidad:** 1
-
-- **Protoboard**
-  - **Nombre:** Protoboard
-  - **Imagen:**  <br><img src="https://m.media-amazon.com/images/I/61p+QTbMf5L._SX342_.jpg" width="300"/>
-  - **Descripción:** Protoboard, utilizada para el prototipado y pruebas de circuitos, permitiendo la conexión temporal y reutilizable de componentes sin necesidad de soldadura.
-  - **Cantidad:** 1
-## Historias de usuario épicas
-1.	Monitorear la cantidad de pasos caminados por el usuario y mostrarlas, además de poder configurar un objetivo de pasos.
-2.	Monitorear el ritmo cardiaco del usuario durante diferentes actividades físicas y alertar si el ritmo cardiaco es muy alto. 
-3.	Monitorear la temperatura corporal del usuario y avisar si la temperatura corporal es muy alta.
 
 ## Tabla de Requisitos del Proyecto 'Fit Wearable'
 
