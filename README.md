@@ -16,21 +16,13 @@ El objetivo general del proyecto Wearable Fit es desarrollar un dispositivo wear
 
 ## Objetivos Específicos
 
-<p align="justify">
-- <b>Monitorear la Actividad Física:</b> Desarrollar un sistema que registre y muestre en tiempo real la cantidad de pasos caminados por el usuario, permitiendo establecer metas de actividad diaria.
-</p>
+<ul>
+  <li><p align="justify"><b>Monitorear la Actividad Física:</b> Desarrollar un sistema que registre y muestre en tiempo real la cantidad de pasos caminados por el usuario, permitiendo establecer metas de actividad diaria.</p></li>
+  <li><p align="justify"><b>Medición de la Temperatura Corporal:</b> Implementar un sensor que mida la temperatura corporal del usuario y proporcione alertas en caso de que la temperatura supere un rango saludable, asegurando el bienestar durante la actividad física.</p></li>
+  <li><p align="justify"><b>Proveer Retroalimentación en Tiempo Real:</b> Integrar un motor vibrador y un buzzer para ofrecer retroalimentación, alertando al usuario sobre metas alcanzadas y condiciones críticas de salud.</p></li>
+  <li><p align="justify"><b>Visualización de Datos en Smart TV:</b> Desarrollar una aplicación que permita al usuario acceder de manera cómoda y visual a sus datos de salud y rendimiento físico, brindando una experiencia interactiva y accesible desde el hogar.</p></li>
+</ul>
 
-<p align="justify">
-- <b>Medición de la Temperatura Corporal:</b> Implementar un sensor que mida la temperatura corporal del usuario y proporcione alertas en caso de que la temperatura supere un rango saludable, asegurando el bienestar durante la actividad física.
-</p>
-
-<p align="justify">
-- <b>Proveer Retroalimentación en Tiempo Real:</b> Integrar un motor vibrador y un buzzer para ofrecer retroalimentación, alertando al usuario sobre metas alcanzadas y condiciones críticas de salud.
-</p>
-
-<p align="justify">
-- <b>Visualización de Datos en Smart TV:</b> Desarrollar una aplicación que permita al usuario acceder de manera cómoda y visual a sus datos de salud y rendimiento físico, brindando una experiencia interactiva y accesible desde el hogar.
-</p>
 
 
 ## Software empleado
