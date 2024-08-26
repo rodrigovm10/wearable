@@ -64,7 +64,7 @@
 
 - **Pila**
 -  - **Nombre:** Batería Steren TEL-BAT101
-   - **Imagen:**: ![pila](https://github.com/user-attachments/assets/4d1350c6-8ba6-45a4-a824-8efb1114b069)
+   - **Imagen:**:  <br><img src="https://github.com/user-attachments/assets/4d1350c6-8ba6-45a4-a824-8efb1114b069" width="300"/>
   - **Descripción:** Batería Steren TEL-BAT101, utilizada como repuesto en teléfonos inalámbricos para asegurar su funcionamiento continuo
   - **Cantidad:** 1
 
