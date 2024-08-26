@@ -1,4 +1,4 @@
-![Cables](https://github.com/user-attachments/assets/eebf13e8-af84-463a-b42f-8aba7458b028)# Fit Wearable
+# Fit Wearable
 
 ## Visión
 <p align="justify">
@@ -58,7 +58,7 @@
 
 - **Cables Jumplers**
   - **Nombre:** Cables Jumplers
-  - **Imagen:**  ![Cables](https://github.com/user-attachments/assets/cb167355-1ec3-4e1b-b23e-2fc16109dde3)
+  - **Imagen:**   <br><img src="https://github.com/user-attachments/assets/cb167355-1ec3-4e1b-b23e-2fc16109dde3" width="300"/>
   - **Descripción:** Cables de conexión Dupont, utilizados para realizar prototipos y conectar diferentes módulos y sensores.
   - **Cantidad:** 30
 
