@@ -11,7 +11,7 @@
 
 ## Objetivo general
 <p align="justify">
-El objetivo general del proyecto Wearable Fit es desarrollar un dispositivo wearable y una aplicación para Smart TV que permitan a los usuarios monitorear y mejorar su actividad física y salud en tiempo real, proporcionando una experiencia personalizada y accesible que incluya el registro de pasos y medición de temperatura corporal.
+El objetivo general del proyecto Wearable Fit es desarrollar un dispositivo wearable y una aplicación para  que permitan a los usuarios monitorear y mejorar su actividad física y salud en tiempo real, proporcionando una experiencia personalizada y accesible que incluya el registro de pasos y medición de temperatura corporal.
 </p>
 
 ## Objetivos Específicos
@@ -47,9 +47,10 @@ El objetivo general del proyecto Wearable Fit es desarrollar un dispositivo wear
 
 | **Nombre**          | **Imagen**                                                                                                                                       | **Descripción**                                                                                          | **Cantidad** |
 |---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|--------------|
-| **Vibrador**        | <img src="https://ultra-lab.net/wp-content/uploads/2017/12/VibrationMotor-01-L.jpg" alt="Motor Vibrador" width="150"/>                          | Proporciona retroalimentación al usuario sobre un tramo recorrido.                                        | 1            |
+| **Botón**        | <img src="https://m.media-amazon.com/images/I/81SwHuIUXDL._AC_SY450_.jpg" alt="Botón" width="150"/>                        |Permite al usuario interactuar con el dispositivo, enviando señales para activar o desactivar funciones.                                        | 1            |
 | **Pantalla OLED**   | <img src="https://pigra.com.mx/1106-medium_default/pantalla-oled-13-pulgadas-128x64-i2c.jpg" alt="Pantalla OLED" width="150"/>                   | Muestra información relevante del dispositivo, como las métricas de salud y actividad física.             | 1            |
 | **Buzzer**          | <img src="https://www.electronicaembajadores.com/Datos/fotos/articulos/grandes/zb/zbpz/zbpzs02.jpg" alt="Buzzer" width="150"/>                  | Emite sonidos para alertar o notificar al usuario.                                                        | 1            |
+| **Potenciómetro**          | <img src="https://m.media-amazon.com/images/I/41+mdNgrJUL._AC_SY450_.jpg" alt="Potenciómetro" width="150"/>                 | Regula la intensidad de una función, permitiendo ajustes finos en el dispositivo.                                                      | 1            |
 
 ### Material Extra
 
