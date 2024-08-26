@@ -32,6 +32,35 @@ El objetivo general del proyecto Wearable Fit es desarrollar un dispositivo wear
 - **MQTT** - Licencia: EPL
 - **Node-Red** - Licencia: MIT
 ## Hardware
+
+## Hardware
+
+### Sensores
+
+| **Nombre**                         | **Imagen**                                                                                                                                                                 | **Descripción**                                                                                                             | **Cantidad** |
+|------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|--------------|
+| **Acelerómetro**                   | <img src="https://sonrobots.com/wp-content/uploads/2021/01/ADXL335-340x299.jpg" alt="Acelerómetro" width="150"/>                                                           | Mide la aceleración en tres ejes (X, Y, Z) para rastrear movimientos y detectar actividades físicas.                        | 1            |
+| **Sensor Temperatura y Humedad**   | <img src="https://imgs.search.brave.com/DH26FfhdEHWjqGFNm7ZReO7jmJSvnfbbgOuHcq2TCGM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91ZWxl/Y3Ryb25pY3MuY29t/L3dwLWNvbnRlbnQv/dXBsb2Fkcy9BUjAw/MzNfS1kwMTVfNC5q/cGc" width="150"/> | Mide la temperatura y humedad.                                                                                             | 1            |
+| **Sensor de Temperatura Corporal** | <img src="https://uelectronics.com/wp-content/uploads/2018/08/AR0608-MLX90614_v1.png" alt="Sensor de Temperatura Corporal" width="150"/>                                  | Mide la temperatura del cuerpo del usuario en grados Celsius (°C).                                                          | 1            |
+
+### Actuadores
+
+| **Nombre**          | **Imagen**                                                                                                                                       | **Descripción**                                                                                          | **Cantidad** |
+|---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|--------------|
+| **Vibrador**        | <img src="https://ultra-lab.net/wp-content/uploads/2017/12/VibrationMotor-01-L.jpg" alt="Motor Vibrador" width="150"/>                          | Proporciona retroalimentación al usuario sobre un tramo recorrido.                                        | 1            |
+| **Pantalla OLED**   | <img src="https://pigra.com.mx/1106-medium_default/pantalla-oled-13-pulgadas-128x64-i2c.jpg" alt="Pantalla OLED" width="150"/>                   | Muestra información relevante del dispositivo, como las métricas de salud y actividad física.             | 1            |
+| **Buzzer**          | <img src="https://www.electronicaembajadores.com/Datos/fotos/articulos/grandes/zb/zbpz/zbpzs02.jpg" alt="Buzzer" width="150"/>                  | Emite sonidos para alertar o notificar al usuario.                                                        | 1            |
+
+### Material Extra
+
+| **Nombre**            | **Imagen**                                                                                                                                       | **Descripción**                                                                                                         | **Cantidad** |
+|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|--------------|
+| **Cables Jumplers**    | <img src="https://github.com/user-attachments/assets/cb167355-1ec3-4e1b-b23e-2fc16109dde3" width="150"/>                                      | Cables de conexión Dupont, utilizados para realizar prototipos y conectar diferentes módulos y sensores.                | 30           |
+| **Pila**              | <img src="https://github.com/user-attachments/assets/4d1350c6-8ba6-45a4-a824-8efb1114b069" width="150"/>                                       | Batería Steren TEL-BAT101, utilizada como repuesto en teléfonos inalámbricos para asegurar su funcionamiento continuo.   | 1            |
+| **Cable Micro USB**   | <img src="https://m.media-amazon.com/images/I/61+gz2-AA0L._AC_SX569_.jpg" alt="Cable Micro USB" width="150"/>                                    | Cable Micro USB de 1 metro, perfecto para conectar la ESP32 a la computadora, proporcionando una conexión estable.       | 1            |
+| **Kit de soldador**   | <img src="https://m.media-amazon.com/images/I/61KhZCpqmYL._AC_SX425_.jpg" alt="Kit de soldador" width="150"/>                                    | Kit de soldador para proyectos electrónicos, equipado con un soldador ergonómico, alambre de estaño y herramientas.     | 1            |
+| **Protoboard**        | <img src="https://m.media-amazon.com/images/I/61p+QTbMf5L._SX342_.jpg" alt="Protoboard" width="150"/>                                           | Protoboard, utilizada para el prototipado y pruebas de circuitos, permitiendo la conexión temporal sin soldadura.       | 1            |
+
 ### Sensores
 - **Acelerómetro**
   - **Nombre:** Acelerómetro
