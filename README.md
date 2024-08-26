@@ -47,10 +47,12 @@ El objetivo general del proyecto Wearable Fit es desarrollar un dispositivo wear
 
 | **Nombre**          | **Imagen**                                                                                                                                       | **Descripción**                                                                                          | **Cantidad** |
 |---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|--------------|
-| **Botón**        | <img src="https://m.media-amazon.com/images/I/81SwHuIUXDL._AC_SY450_.jpg" alt="Botón" width="150"/>                        |Permite al usuario interactuar con el dispositivo, enviando señales para activar o desactivar funciones.                                        | 1            |
+| **Botón**        | <img src="![image](https://github.com/user-attachments/assets/28214188-ef7d-4aea-93ec-5aaf9d92ea6c)
+" alt="Botón" width="150"/>                        |Permite al usuario interactuar con el dispositivo, enviando señales para activar o desactivar funciones.                                        | 1            |
 | **Pantalla OLED**   | <img src="https://pigra.com.mx/1106-medium_default/pantalla-oled-13-pulgadas-128x64-i2c.jpg" alt="Pantalla OLED" width="150"/>                   | Muestra información relevante del dispositivo, como las métricas de salud y actividad física.             | 1            |
 | **Buzzer**          | <img src="https://www.electronicaembajadores.com/Datos/fotos/articulos/grandes/zb/zbpz/zbpzs02.jpg" alt="Buzzer" width="150"/>                  | Emite sonidos para alertar o notificar al usuario.                                                        | 1            |
-| **Potenciómetro**          | <img src="https://m.media-amazon.com/images/I/41+mdNgrJUL._AC_SY450_.jpg" alt="Potenciómetro" width="150"/>                 | Regula la intensidad de una función, permitiendo ajustes finos en el dispositivo.                                                      | 1            |
+| **Potenciómetro**          | <img src="![image](https://github.com/user-attachments/assets/9a222e4b-0a0a-41d6-942a-c109fa18d4cb)
+" alt="Potenciómetro" width="150"/>                 | Regula la intensidad de una función, permitiendo ajustes finos en el dispositivo.                                                      | 1            |
 
 ### Material Extra
 
