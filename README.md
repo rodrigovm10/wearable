@@ -110,5 +110,7 @@ Dentro de los primeros dos requisitos se cumplio la funcionalidad de alertar en 
 Dentro del tercer requisito se consiguio obtener la temperatura, dentro de este requisito se tuvo que soldar los pines al sensor, por lo que fue más tardado de cumplir. Además el soldado no quedo como el esperado por lo que se encuentra flojo, pero se espera corregir esta parte.
 
 Para el siguiente split, se espera seguir con los mismos resultados obtenidos hasta el momento y que todo sea satisfactorio.
-
 </p>
+
+## Carta de agradecimiento
+![Imagen de WhatsApp 2024-08-26 a las 12 22 00_318b6e6f](https://github.com/user-attachments/assets/5df63be2-213f-425a-9d35-91ec52226173)
