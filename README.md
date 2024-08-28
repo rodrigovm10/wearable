@@ -81,7 +81,8 @@ El objetivo general del proyecto Wearable Fit es desarrollar un dispositivo wear
 
 ## Arquitectura
 
-![Arquitectura-Página-1 drawio](https://github.com/user-attachments/assets/7095d5ea-8339-4912-b20f-6246cfdf17f1)
+![image](https://github.com/user-attachments/assets/fda5ba98-0a06-444c-b303-84f0367a2933)
+
 
 
 
