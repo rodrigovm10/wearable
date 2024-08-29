@@ -124,4 +124,19 @@ Para el siguiente split, se espera seguir con los mismos resultados obtenidos ha
 
 ## Código Dashboard
 [Dashboard Flutter](https://github.com/rodrigovm10/wearable_fit/tree/main)
+### Capturas del Dashboard
+![Imagen de WhatsApp 2024-08-29 a las 00 58 28_48055e53](https://github.com/user-attachments/assets/a0e73e17-30dc-4db3-80d1-860667c889ae)
+![Imagen de WhatsApp 2024-08-29 a las 00 58 44_53b0a1ed](https://github.com/user-attachments/assets/36f8285e-4532-4a35-8b8e-452c95864096)
+![Imagen de WhatsApp 2024-08-29 a las 00 58 54_51df46c5](https://github.com/user-attachments/assets/9f98f53b-ed22-4a6a-8877-6101d11466f3)
+![Imagen de WhatsApp 2024-08-29 a las 00 59 05_2d418852](https://github.com/user-attachments/assets/f89b943a-5723-433e-a307-85e458b350e9)
+![Imagen de WhatsApp 2024-08-29 a las 00 59 15_43178222](https://github.com/user-attachments/assets/7ae2fd3a-990c-4f78-bb55-91c880a55421)
+![Imagen de WhatsApp 2024-08-29 a las 00 59 26_54f66f35](https://github.com/user-attachments/assets/0d8858b3-1cc0-4b43-a404-beee6fa343c5)
+![Imagen de WhatsApp 2024-08-29 a las 00 59 40_4d0a6b10](https://github.com/user-attachments/assets/443a98eb-b348-4c09-bcf5-d0e96de783fe)
+![Imagen de WhatsApp 2024-08-29 a las 00 59 49_e0c0b76a](https://github.com/user-attachments/assets/6198f841-1c05-4868-b5e8-148565aca44a)
+
+
+
+
+
+
 
