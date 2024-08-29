@@ -111,6 +111,10 @@ El objetivo general del proyecto Wearable Fit es desarrollar un dispositivo wear
 ### Sensor de temperatura y humedad 
 ![image](https://github.com/user-attachments/assets/75a8d694-f3af-40f1-b690-1599cd9d8262)
 
+### Potenciometro y OLED
+![image](https://github.com/user-attachments/assets/6338401b-d3ed-437b-95e3-68220fa77560)
+
+
 
 
 ## Resultados
