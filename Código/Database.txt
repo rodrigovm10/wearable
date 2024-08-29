@@ -1,50 +1,58 @@
+-- Crear la base de datos llamada 'wearable_fit'
 CREATE DATABASE wearable_fit;
 
+-- Crear la tabla 'temperatura' para almacenar datos de temperatura
 CREATE TABLE temperatura (
-    id serial PRIMARY KEY,
-    valor double precision NOT NULL,
-    fecha_hora timestamp without time zone NOT NULL
-); 
+    id serial PRIMARY KEY, -- Columna para el identificador único de la temperatura
+    valor double precision NOT NULL, -- Columna para almacenar el valor de la temperatura
+    fecha_hora timestamp without time zone NOT NULL -- Columna para almacenar la fecha y hora del registro
+);
 
-
+-- Crear la tabla 'humedad' para almacenar datos de humedad
 CREATE TABLE humedad (
-    id serial PRIMARY KEY,
-    valor double precision NOT NULL,
-    fecha_hora timestamp without time zone NOT NULL
-); 
+    id serial PRIMARY KEY, -- Columna para el identificador único de la humedad
+    valor double precision NOT NULL, -- Columna para almacenar el valor de la humedad
+    fecha_hora timestamp without time zone NOT NULL -- Columna para almacenar la fecha y hora del registro
+);
 
+-- Crear la tabla 'pulsaciones' para almacenar datos de pulsaciones del corazón
 CREATE TABLE pulsaciones (
-    id serial PRIMARY KEY,
-    valor double precision NOT NULL,
-    fecha_hora timestamp without time zone NOT NULL
-); 
+    id serial PRIMARY KEY, -- Columna para el identificador único de las pulsaciones
+    valor double precision NOT NULL, -- Columna para almacenar el valor de las pulsaciones
+    fecha_hora timestamp without time zone NOT NULL -- Columna para almacenar la fecha y hora del registro
+);
 
+-- Crear la tabla 'oximetro' para almacenar datos del nivel de oxígeno en sangre
 CREATE TABLE oximetro (
-    id serial PRIMARY KEY,
-    valor double precision NOT NULL,
-    fecha_hora timestamp without time zone NOT NULL
-); 
+    id serial PRIMARY KEY, -- Columna para el identificador único del oxímetro
+    valor double precision NOT NULL, -- Columna para almacenar el valor del oxímetro
+    fecha_hora timestamp without time zone NOT NULL -- Columna para almacenar la fecha y hora del registro
+);
 
-
+-- Crear la tabla 'termometro' para almacenar datos de la temperatura medida por un termómetro (posiblemente redundante con 'temperatura')
 CREATE TABLE termometro (
-    id serial PRIMARY KEY,
-    valor double precision NOT NULL,
-    fecha_hora timestamp without time zone NOT NULL
-); 
+    id serial PRIMARY KEY, -- Columna para el identificador único del termómetro
+    valor double precision NOT NULL, -- Columna para almacenar el valor del termómetro
+    fecha_hora timestamp without time zone NOT NULL -- Columna para almacenar la fecha y hora del registro
+);
+
+-- Crear la tabla 'pasos' para almacenar el conteo de pasos
 CREATE TABLE pasos (
-    id serial PRIMARY KEY,
-    conteo integer NOT NULL,
-    fecha_hora timestamp without time zone NOT NULL
+    id serial PRIMARY KEY, -- Columna para el identificador único de los pasos
+    conteo integer NOT NULL, -- Columna para almacenar el conteo de pasos
+    fecha_hora timestamp without time zone NOT NULL -- Columna para almacenar la fecha y hora del registro
 );
 
+-- Crear la tabla 'potenciometro' para almacenar datos del valor del potenciómetro
 CREATE TABLE potenciometro (
-    id serial PRIMARY KEY,
-    valor integer NOT NULL,
-    fecha_hora timestamp without time zone NOT NULL
+    id serial PRIMARY KEY, -- Columna para el identificador único del potenciómetro
+    valor integer NOT NULL, -- Columna para almacenar el valor del potenciómetro
+    fecha_hora timestamp without time zone NOT NULL -- Columna para almacenar la fecha y hora del registro
 );
 
+-- Crear la tabla 'boton' para almacenar datos del valor de un botón
 CREATE TABLE boton (
-    id serial PRIMARY KEY,
-    valor integer NOT NULL,
-    fecha_hora timestamp without time zone NOT NULL
+    id serial PRIMARY KEY, -- Columna para el identificador único del botón
+    valor integer NOT NULL, -- Columna para almacenar el valor del botón (presionado/no presionado)
+    fecha_hora timestamp without time zone NOT NULL -- Columna para almacenar la fecha y hora del registro
 );
