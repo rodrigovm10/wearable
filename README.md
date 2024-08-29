@@ -99,20 +99,22 @@ El objetivo general del proyecto Wearable Fit es desarrollar un dispositivo wear
 ### Sprint 3
 ![Sprint 3 - Tablero](https://github.com/rodrigovm10/wearable/assets/104101668/fdec2a05-5779-423d-a64b-eacc92afcdff)
 
-## Circuito diseñado
+## Circuito Diseñado
+
 ### Sensor Pulso
-![Requisito 1 y 2](https://github.com/rodrigovm10/wearable/assets/104101668/be32d3fd-2640-408b-a074-542a72699945)
-### Sensor Termometro Infrarojo
-![image](https://github.com/user-attachments/assets/5c85d4e1-eb61-4a54-a24a-c07a950795bc)
+<img src="https://github.com/rodrigovm10/wearable/assets/104101668/be32d3fd-2640-408b-a074-542a72699945" alt="Sensor Pulso" width="600" style="display:block; margin:auto;"/>
 
-### Sensor Acelerometro
-![image](https://github.com/user-attachments/assets/7b5e3886-a1e7-4b9f-8efc-e9ac200f10ef)
+### Sensor Termómetro Infrarrojo
+<img src="https://github.com/user-attachments/assets/5c85d4e1-eb61-4a54-a24a-c07a950795bc" alt="Sensor Termómetro Infrarrojo" width="600" style="display:block; margin:auto;"/>
 
-### Sensor de temperatura y humedad 
-![image](https://github.com/user-attachments/assets/75a8d694-f3af-40f1-b690-1599cd9d8262)
+### Sensor Acelerómetro
+<img src="https://github.com/user-attachments/assets/7b5e3886-a1e7-4b9f-8efc-e9ac200f10ef" alt="Sensor Acelerómetro" width="600" style="display:block; margin:auto;"/>
 
-### Potenciometro y OLED
-![image](https://github.com/user-attachments/assets/6338401b-d3ed-437b-95e3-68220fa77560)
+### Sensor de Temperatura y Humedad
+<img src="https://github.com/user-attachments/assets/75a8d694-f3af-40f1-b690-1599cd9d8262" alt="Sensor de Temperatura y Humedad" width="600" style="display:block; margin:auto;"/>
+
+### Potenciómetro y OLED
+<img src="https://github.com/user-attachments/assets/6338401b-d3ed-437b-95e3-68220fa77560" alt="Potenciómetro y OLED" width="600" style="display:block; margin:auto;"/>
 
 
 
