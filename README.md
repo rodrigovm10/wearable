@@ -5,22 +5,22 @@
   Nuestra visión es redefinir la experiencia del ejercicio y las actividades físicas, proporcionando un dispositivo 
    wearable que no solo registre el rendimiento, sino que también motive y guíe a los usuarios de manera 
    personalizada e inteligente. Este dispositivo está diseñado para superar las barreras comunes que enfrentan las 
-   personas activas, tales como el monitoreo preciso del rendimiento, la falta de motivación y la dificultad para 
+   personas activas, tales como el monitoreo del rendimiento, la falta de motivación y la dificultad para 
    personalizar sus entrenamientos según sus necesidades individuales a través de una app.
 </p>
 
 ## Objetivo general
 <p align="justify">
-El objetivo general del proyecto Wearable Fit es desarrollar un dispositivo wearable y una aplicación para  que permitan a los usuarios monitorear y mejorar su actividad física y salud en tiempo real, proporcionando una experiencia personalizada y accesible que incluya el registro de pasos y medición de temperatura corporal.
+El objetivo general del proyecto Wearable Fit es desarrollar un dispositivo wearable y una aplicación para  que permitan a los usuarios monitorear y mejorar su actividad física y salud en tiempo real y accesible que incluya el registro de pasos, medición de temperatura corporal, ambiental y frecuencia cardiaca.
 </p>
 
 ## Objetivos Específicos
 
 <ul>
-  <li><p align="justify"><b>Monitorear la Actividad Física:</b> Desarrollar un sistema que registre y muestre en tiempo real la cantidad de pasos caminados por el usuario, permitiendo establecer metas de actividad diaria.</p></li>
-  <li><p align="justify"><b>Medición de la Temperatura Corporal:</b> Implementar un sensor que mida la temperatura corporal del usuario y proporcione alertas en caso de que la temperatura supere un rango saludable, asegurando el bienestar durante la actividad física.</p></li>
+  <li><p align="justify"><b>Monitorear la Actividad Física:</b> Desarrollar un sistema que registre y muestre en tiempo real la cantidad de pasos caminados por el usuario.</p></li>
+  <li><p align="justify"><b>Medición de la Temperatura Corporal:</b> Implementar un sensor que mida la temperatura corporal del usuario y proporcione alertas en caso de que la temperatura supere un rango saludable. </p></li>
   <li><p align="justify"><b>Proveer Retroalimentación en Tiempo Real:</b> Integrar un motor vibrador y un buzzer para ofrecer retroalimentación, alertando al usuario sobre metas alcanzadas y condiciones críticas de salud.</p></li>
-  <li><p align="justify"><b>Visualización de Datos:</b> Desarrollar una aplicación que permita al usuario acceder de manera cómoda y visual a sus datos de salud y rendimiento físico, brindando una experiencia interactiva. </p></li>
+  <li><p align="justify"><b>Visualización de Datos:</b> Desarrollar una aplicación que permita al usuario acceder de manera visual a sus datos de salud y rendimiento físico. </p></li>
 </ul>
 
 
@@ -42,6 +42,8 @@ El objetivo general del proyecto Wearable Fit es desarrollar un dispositivo wear
 | **Acelerómetro**                   | <img src="https://sonrobots.com/wp-content/uploads/2021/01/ADXL335-340x299.jpg" alt="Acelerómetro" width="150"/>                                                           | Mide la aceleración en tres ejes (X, Y, Z) para rastrear movimientos y detectar actividades físicas.                        | 1            |
 | **Sensor Temperatura y Humedad**   | <img src="https://imgs.search.brave.com/DH26FfhdEHWjqGFNm7ZReO7jmJSvnfbbgOuHcq2TCGM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91ZWxl/Y3Ryb25pY3MuY29t/L3dwLWNvbnRlbnQv/dXBsb2Fkcy9BUjAw/MzNfS1kwMTVfNC5q/cGc" width="150"/> | Mide la temperatura y humedad.                                                                                             | 1            |
 | **Sensor de Temperatura Corporal** | <img src="https://uelectronics.com/wp-content/uploads/2018/08/AR0608-MLX90614_v1.png" alt="Sensor de Temperatura Corporal" width="150"/>                                  | Mide la temperatura del cuerpo del usuario en grados Celsius (°C).                                                          | 1            |
+| **Sensor de Pulso y Oxigenación** | <img src="[https://uelectronics.com/wp-content/uploads/2018/08/AR0608-MLX90614_v1.png](https://imgs.search.brave.com/0y6fGJbV4HfBO34nd9vQe8sk2MMEMzXuD35JS8syAJ4/rs:fit:800:800:1/g:ce/aHR0cHM6Ly93d3cu/Y29kaWdvLXN1c3Rl/bmFibGUuY29tL3dw/LWNvbnRlbnQvdXBs/b2Fkcy9wcm9kdWN0/cy9TcDk3M2M3NTBf/MTAwMC5qcGc)" alt="Sensor de Pulso y Oxigenación" width="150"/>                                  |Mide la frecuencia cardíaca y la saturación de oxígeno en la sangre (SpO2). Ideal para monitorear la salud cardiovascular.                                                          | 1            |
+
 
 ### Actuadores
 
