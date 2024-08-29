@@ -122,3 +122,6 @@ Para el siguiente split, se espera seguir con los mismos resultados obtenidos ha
 ## Video mostrando el proyecto
 [video de agradecimiento](https://drive.google.com/file/d/1fgn8PI5p78b-DOR3aJ8Lql8_4v2Fnp7q/view?usp=drive_link)
 
+## Codigo Dashboard
+[Dashboard Flutter](https://github.com/rodrigovm10/wearable_fit/tree/main)
+
