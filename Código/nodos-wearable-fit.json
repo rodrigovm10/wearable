@@ -1,0 +1,869 @@
+[
+    {
+        "id": "9c95789c52d75095",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "01b896e05152ea59",
+        "type": "mqtt in",
+        "z": "9c95789c52d75095",
+        "name": "",
+        "topic": "sensor/dht11/temperatura",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d4ce0d90bf2b2c4a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 100,
+        "wires": [
+            [
+                "02fa34cb5fad6ad3",
+                "c2037c05b8d19d05",
+                "32db76e8333ef0b3"
+            ]
+        ]
+    },
+    {
+        "id": "6b7510efb3c49d9e",
+        "type": "mqtt in",
+        "z": "9c95789c52d75095",
+        "name": "",
+        "topic": "sensor/dht11/humedad",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d4ce0d90bf2b2c4a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 240,
+        "wires": [
+            [
+                "8be14c3e48651417",
+                "27a4fcdd8697e7eb",
+                "a1fc66aae64400bd"
+            ]
+        ]
+    },
+    {
+        "id": "02fa34cb5fad6ad3",
+        "type": "debug",
+        "z": "9c95789c52d75095",
+        "name": "debug 9",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 100,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "8be14c3e48651417",
+        "type": "debug",
+        "z": "9c95789c52d75095",
+        "name": "debug 10",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 100,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "f98620af85a93f68",
+        "type": "mqtt in",
+        "z": "9c95789c52d75095",
+        "name": "",
+        "topic": "sensor/potentiometer/value",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d4ce0d90bf2b2c4a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 360,
+        "wires": [
+            [
+                "37be4154ae88617c",
+                "1e4868cc91cab95b",
+                "5f9b028af922bba8"
+            ]
+        ]
+    },
+    {
+        "id": "37be4154ae88617c",
+        "type": "debug",
+        "z": "9c95789c52d75095",
+        "name": "debug 11",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 100,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "c2037c05b8d19d05",
+        "type": "mqtt out",
+        "z": "9c95789c52d75095",
+        "name": "",
+        "topic": "sensor/dht11/temperatura/out",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a704eebf46ead8b8",
+        "x": 500,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "27a4fcdd8697e7eb",
+        "type": "mqtt out",
+        "z": "9c95789c52d75095",
+        "name": "",
+        "topic": "sensor/dht11/humedad/out",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a704eebf46ead8b8",
+        "x": 480,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "1e4868cc91cab95b",
+        "type": "mqtt out",
+        "z": "9c95789c52d75095",
+        "name": "",
+        "topic": "sensor/potentiometer/value/out",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a704eebf46ead8b8",
+        "x": 490,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "efb12994bab53caa",
+        "type": "postgresql",
+        "z": "9c95789c52d75095",
+        "name": "INSERT TEMPERATURA",
+        "query": "INSERT INTO temperatura (valor, fecha_hora) VALUES ($1, $2);\n",
+        "postgreSQLConfig": "814d5cc71cb7d3c3",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 750,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "32db76e8333ef0b3",
+        "type": "function",
+        "z": "9c95789c52d75095",
+        "name": "Insertar Temperatura",
+        "func": "let temperature = msg.payload;\n\nlet timestamp = new Date().toISOString().slice(0, 19).replace('T', ' ');\n\nmsg.params = [\n    temperature,\n    timestamp\n];\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 80,
+        "wires": [
+            [
+                "efb12994bab53caa"
+            ]
+        ]
+    },
+    {
+        "id": "a1fc66aae64400bd",
+        "type": "function",
+        "z": "9c95789c52d75095",
+        "name": "Insertar Humedad",
+        "func": "let humidity = msg.payload;\n\nlet timestamp = new Date().toISOString().slice(0, 19).replace('T', ' ');\n\nmsg.params = [\n    humidity,\n    timestamp\n];\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 220,
+        "wires": [
+            [
+                "58cf76915fc82f57"
+            ]
+        ]
+    },
+    {
+        "id": "58cf76915fc82f57",
+        "type": "postgresql",
+        "z": "9c95789c52d75095",
+        "name": "INSERT HUMEDAD",
+        "query": "INSERT INTO humedad (valor, fecha_hora) VALUES ($1, $2);\n",
+        "postgreSQLConfig": "814d5cc71cb7d3c3",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 740,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5f9b028af922bba8",
+        "type": "function",
+        "z": "9c95789c52d75095",
+        "name": "Insertar Potenciometro",
+        "func": "let potentiometer = msg.payload;\n\nlet timestamp = new Date().toISOString().slice(0, 19).replace('T', ' ');\n\nmsg.params = [\n    potentiometer,\n    timestamp\n];\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 340,
+        "wires": [
+            [
+                "f4fb6df29875720e"
+            ]
+        ]
+    },
+    {
+        "id": "f4fb6df29875720e",
+        "type": "postgresql",
+        "z": "9c95789c52d75095",
+        "name": "INSERT POTENCIOMETRO",
+        "query": "INSERT INTO potenciometro (valor, fecha_hora) VALUES ($1, $2);\n",
+        "postgreSQLConfig": "814d5cc71cb7d3c3",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 760,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9d1c01680a9b6eaa",
+        "type": "mqtt in",
+        "z": "9c95789c52d75095",
+        "name": "",
+        "topic": "sensor/mlx/value",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "d4ce0d90bf2b2c4a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 100,
+        "y": 480,
+        "wires": [
+            [
+                "73981581114ad972",
+                "a9a733bfcec028f0",
+                "59910edaabd9b90b"
+            ]
+        ]
+    },
+    {
+        "id": "73981581114ad972",
+        "type": "debug",
+        "z": "9c95789c52d75095",
+        "name": "debug 12",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 100,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "a9a733bfcec028f0",
+        "type": "mqtt out",
+        "z": "9c95789c52d75095",
+        "name": "",
+        "topic": "sensor/mlx/value/out",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a704eebf46ead8b8",
+        "x": 460,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "59910edaabd9b90b",
+        "type": "function",
+        "z": "9c95789c52d75095",
+        "name": "Insertar Termometro",
+        "func": "let mlx = msg.payload;\n\nlet timestamp = new Date().toISOString().slice(0, 19).replace('T', ' ');\n\nmsg.params = [\n    mlx,\n    timestamp\n];\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 460,
+        "wires": [
+            [
+                "9e64adb39f8758ee"
+            ]
+        ]
+    },
+    {
+        "id": "9e64adb39f8758ee",
+        "type": "postgresql",
+        "z": "9c95789c52d75095",
+        "name": "INSERT TERMOMETRO",
+        "query": "INSERT INTO termometro (valor, fecha_hora) VALUES ($1, $2);\n",
+        "postgreSQLConfig": "814d5cc71cb7d3c3",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 750,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d627d18fcdf6ca02",
+        "type": "mqtt in",
+        "z": "9c95789c52d75095",
+        "name": "",
+        "topic": "sensor/max/bpm",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "7cd3f1773fc1dc22",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 100,
+        "y": 600,
+        "wires": [
+            [
+                "97d7531cfdb6772d",
+                "a142d376beb262a0",
+                "59f32de5d4edb8c9"
+            ]
+        ]
+    },
+    {
+        "id": "97d7531cfdb6772d",
+        "type": "debug",
+        "z": "9c95789c52d75095",
+        "name": "debug 13",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 100,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "a142d376beb262a0",
+        "type": "mqtt out",
+        "z": "9c95789c52d75095",
+        "name": "",
+        "topic": "sensor/max/bpm/out",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a704eebf46ead8b8",
+        "x": 460,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "59f32de5d4edb8c9",
+        "type": "function",
+        "z": "9c95789c52d75095",
+        "name": "Insertar Pulsaciones",
+        "func": "let bpm = msg.payload;\n\nlet timestamp = new Date().toISOString().slice(0, 19).replace('T', ' ');\n\nmsg.params = [\n    bpm,\n    timestamp\n];\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 580,
+        "wires": [
+            [
+                "0459341f7b66c568"
+            ]
+        ]
+    },
+    {
+        "id": "0459341f7b66c568",
+        "type": "postgresql",
+        "z": "9c95789c52d75095",
+        "name": "INSERT PULSOS",
+        "query": "INSERT INTO pulsaciones (valor, fecha_hora) VALUES ($1, $2);\n",
+        "postgreSQLConfig": "814d5cc71cb7d3c3",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 730,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "26c83974cbae525b",
+        "type": "mqtt in",
+        "z": "9c95789c52d75095",
+        "name": "",
+        "topic": "sensor/steps",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "7cd3f1773fc1dc22",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 90,
+        "y": 820,
+        "wires": [
+            [
+                "1822bd4b034dcf71",
+                "7071eeaeb73803e3",
+                "0c0e66dbd01bf0ff"
+            ]
+        ]
+    },
+    {
+        "id": "1822bd4b034dcf71",
+        "type": "debug",
+        "z": "9c95789c52d75095",
+        "name": "debug 14",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 100,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "7071eeaeb73803e3",
+        "type": "mqtt out",
+        "z": "9c95789c52d75095",
+        "name": "",
+        "topic": "sensor/steps/out",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a704eebf46ead8b8",
+        "x": 440,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "0c0e66dbd01bf0ff",
+        "type": "function",
+        "z": "9c95789c52d75095",
+        "name": "Insertar Pasos",
+        "func": "let conteo = msg.payload;\n\nlet timestamp = new Date().toISOString().slice(0, 19).replace('T', ' ');\n\nmsg.params = [\n    conteo,\n    timestamp\n];\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 800,
+        "wires": [
+            [
+                "2c9bbb06aae2f876"
+            ]
+        ]
+    },
+    {
+        "id": "2c9bbb06aae2f876",
+        "type": "postgresql",
+        "z": "9c95789c52d75095",
+        "name": "INSERT PASOS",
+        "query": "INSERT INTO pasos (conteo, fecha_hora) VALUES ($1, $2);\n",
+        "postgreSQLConfig": "814d5cc71cb7d3c3",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 720,
+        "y": 800,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "24c440b2f6227985",
+        "type": "mqtt in",
+        "z": "9c95789c52d75095",
+        "name": "",
+        "topic": "sensor/max/bpm",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "7cd3f1773fc1dc22",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 100,
+        "y": 700,
+        "wires": [
+            [
+                "cd07741b66ff3317",
+                "6a985a5d80cb6f69",
+                "2a1a5697d5c32b6d"
+            ]
+        ]
+    },
+    {
+        "id": "cd07741b66ff3317",
+        "type": "debug",
+        "z": "9c95789c52d75095",
+        "name": "debug 15",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 100,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "6a985a5d80cb6f69",
+        "type": "mqtt out",
+        "z": "9c95789c52d75095",
+        "name": "",
+        "topic": "sensor/max/bpm/out",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a704eebf46ead8b8",
+        "x": 460,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "2a1a5697d5c32b6d",
+        "type": "function",
+        "z": "9c95789c52d75095",
+        "name": "Insertar Pulsaciones",
+        "func": "let bpm = msg.payload;\n\nlet timestamp = new Date().toISOString().slice(0, 19).replace('T', ' ');\n\nmsg.params = [\n    bpm,\n    timestamp\n];\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 680,
+        "wires": [
+            [
+                "889af847c137ccca"
+            ]
+        ]
+    },
+    {
+        "id": "889af847c137ccca",
+        "type": "postgresql",
+        "z": "9c95789c52d75095",
+        "name": "INSERT PULSOS",
+        "query": "INSERT INTO pulsaciones (valor, fecha_hora) VALUES ($1, $2);\n",
+        "postgreSQLConfig": "814d5cc71cb7d3c3",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 730,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "52659d814b16b279",
+        "type": "mqtt in",
+        "z": "9c95789c52d75095",
+        "name": "",
+        "topic": "sensor/max/pox",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "7cd3f1773fc1dc22",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 100,
+        "y": 920,
+        "wires": [
+            [
+                "105dbbd342dcaa3a",
+                "d39993387533b393",
+                "f8e3535bce22e383"
+            ]
+        ]
+    },
+    {
+        "id": "105dbbd342dcaa3a",
+        "type": "debug",
+        "z": "9c95789c52d75095",
+        "name": "debug 16",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 100,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "d39993387533b393",
+        "type": "mqtt out",
+        "z": "9c95789c52d75095",
+        "name": "",
+        "topic": "sensor/max/pox/out",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a704eebf46ead8b8",
+        "x": 450,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "f8e3535bce22e383",
+        "type": "function",
+        "z": "9c95789c52d75095",
+        "name": "Insertar Oximetro",
+        "func": "let pox = msg.payload;\n\nlet timestamp = new Date().toISOString().slice(0, 19).replace('T', ' ');\n\nmsg.params = [\n    pox,\n    timestamp\n];\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 900,
+        "wires": [
+            [
+                "d96f4d7d5c104378"
+            ]
+        ]
+    },
+    {
+        "id": "d96f4d7d5c104378",
+        "type": "postgresql",
+        "z": "9c95789c52d75095",
+        "name": "INSERT OXIMETRO",
+        "query": "INSERT INTO oximetro (valor, fecha_hora) VALUES ($1, $2);\n",
+        "postgreSQLConfig": "814d5cc71cb7d3c3",
+        "split": false,
+        "rowsPerMsg": 1,
+        "outputs": 1,
+        "x": 740,
+        "y": 900,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d4ce0d90bf2b2c4a",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.emqx.io",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "a704eebf46ead8b8",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "test.mosquitto.org",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "814d5cc71cb7d3c3",
+        "type": "postgreSQLConfig",
+        "name": "",
+        "host": "127.0.0.1",
+        "hostFieldType": "str",
+        "port": "5432",
+        "portFieldType": "num",
+        "database": "wearable_fit",
+        "databaseFieldType": "str",
+        "ssl": "false",
+        "sslFieldType": "bool",
+        "applicationName": "",
+        "applicationNameType": "str",
+        "max": "10",
+        "maxFieldType": "num",
+        "idle": "1000",
+        "idleFieldType": "num",
+        "connectionTimeout": "10000",
+        "connectionTimeoutFieldType": "num",
+        "user": "postgres",
+        "userFieldType": "str",
+        "password": "kokun6969",
+        "passwordFieldType": "str"
+    },
+    {
+        "id": "7cd3f1773fc1dc22",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.emqx.io",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]
