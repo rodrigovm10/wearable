@@ -1,4 +1,30 @@
-CREATE TABLE wearable_fit;
+CREATE DATABASE wearable_fit;
+
+CREATE TABLE temperatura (
+    id serial PRIMARY KEY,
+    valor double precision NOT NULL,
+    fecha_hora timestamp without time zone NOT NULL
+); 
+
+
+CREATE TABLE humedad (
+    id serial PRIMARY KEY,
+    valor double precision NOT NULL,
+    fecha_hora timestamp without time zone NOT NULL
+); 
+
+CREATE TABLE pulsaciones (
+    id serial PRIMARY KEY,
+    valor double precision NOT NULL,
+    fecha_hora timestamp without time zone NOT NULL
+); 
+
+CREATE TABLE oximetro (
+    id serial PRIMARY KEY,
+    valor double precision NOT NULL,
+    fecha_hora timestamp without time zone NOT NULL
+); 
+
 
 CREATE TABLE termometro (
     id serial PRIMARY KEY,
@@ -10,8 +36,15 @@ CREATE TABLE pasos (
     conteo integer NOT NULL,
     fecha_hora timestamp without time zone NOT NULL
 );
-CREATE TABLE temperatura (
+
+CREATE TABLE potenciometro (
     id serial PRIMARY KEY,
-    valor double precision NOT NULL,
+    valor integer NOT NULL,
+    fecha_hora timestamp without time zone NOT NULL
+);
+
+CREATE TABLE boton (
+    id serial PRIMARY KEY,
+    valor integer NOT NULL,
     fecha_hora timestamp without time zone NOT NULL
 );
