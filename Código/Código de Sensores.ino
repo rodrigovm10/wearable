@@ -1,187 +1,237 @@
-#include <WiFi.h>
-#include <PubSubClient.h>
 #include <Wire.h>
-#include <MPU6050.h>
-#include <Adafruit_MLX90614.h>
-#include <Adafruit_GFX.h>
-#include <Adafruit_SSD1306.h>
-#include <driver/touch_pad.h>
+#include <WiFi.h>
+#include <time.h>
 #include <DHT.h>
+#include <MPU6050.h>
+#include <PubSubClient.h>
+#include <Adafruit_SSD1306.h>
+#include <Adafruit_MLX90614.h>
+#include "MAX30100_PulseOximeter.h"
 
-// Definir los datos de conexión Wi-Fi
-const char* ssid = "Yesenia";
-const char* password = "samara2mg";
- 
-// Definir la dirección del broker MQTT
-const char* mqtt_server = "test.mosquitto.org";
+// Configuración de WiFi
+const char* ssid = "Redmi note 9";
+const char* password = "wearable_fit";
 
-// Inicializar el cliente WiFi y MQTT
+// Configuración de MQTT
+const char* mqtt_server = "broker.emqx.io";
+const int mqtt_port = 1883;
+const char* mqtt_topic_dht11_temperatura = "sensor/dht11/temperatura";
+const char* mqtt_topic_dht11_humedad = "sensor/dht11/humedad";
+const char* mqtt_topic_mlx = "sensor/mlx/value";
+const char* mqtt_topic_steps = "sensor/steps";
+const char* mqtt_topic_buzzer = "sensor/buzzer";
+const char* mqtt_topic_pot = "sensor/potentiometer/value";
+const char* mqtt_topic_button = "sensor/button";
+const char* mqtt_topic_pox = "sensor/max/pox";
+const char* mqtt_topic_bpm = "sensor/max/bpm";
+
+// Configuración de la pantalla OLED
+#define SCREEN_WIDTH 128
+#define SCREEN_HEIGHT 64
+#define OLED_RESET    -1
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
+
+// Configuración de pines del encoder rotativo
+const int clkPin = 27;    // Pin del CLK
+const int dtPin = 14;     // Pin del DT
+const int swPin = 12;     // Pin del botón integrado en el encoder
+const int buzzerPin = 15; // Pin del buzzer
+
+// Potenciometro
+int lastClkState;
+int potValue = 0;
+int lastPotValue = 0;
+
+// Configuración del sensor DHT11
+#define DHTPIN 18
+#define DHTTYPE DHT11
+
+// Configura los pines I2C
+#define SDA_PIN 21
+#define SCL_PIN 22
+
+// Inicializar sensores
+DHT dht(DHTPIN, DHTTYPE);
+Adafruit_MLX90614 mlx = Adafruit_MLX90614();
+
 WiFiClient espClient;
 PubSubClient client(espClient);
 
-// Definir los pines del sensor de temperatura DHT11
-#define TEMP_PIN 18      // Pin GPIO donde está conectado el sensor DHT11
-#define DHTTYPE DHT11    // Definir el tipo de sensor DHT (DHT11, DHT22)
+unsigned long lastPublishTime = 0; 
+const long publishInterval = 5000; 
 
-// Crear objetos para los sensores
-DHT dht(TEMP_PIN, DHTTYPE);
-Adafruit_MLX90614 mlx = Adafruit_MLX90614();
+// Variables para el menú
+String menuItems[] = {"Ver Temp y Hum", "Ver Temp IR", "Ver Pasos", "Ver Pulso y Oximetro"};
+int menuLength = sizeof(menuItems) / sizeof(menuItems[0]);
+int currentSelection = 0;
+bool buttonPressed = false;
+bool inMenu = true; // Indica si estamos en el menú o mostrando una opción
+
+// Variables para almacenar los últimos valores enviados
+float lastTemperature = NAN;
+float lastHumidity = NAN;
+float lastMlxTemp = NAN;
+
+const long gmtOffset_sec = -7200; // Ajuste según tu zona horaria
+const int daylightOffset_sec = 3600; // Ajuste para horario de verano, si aplica
+
+// MPU
 MPU6050 mpu;
-
-// Definir el tamaño de la pantalla OLED (128x64 por defecto)
-#define SCREEN_WIDTH 128
-#define SCREEN_HEIGHT 64
-#define OLED_RESET    -1  // Pin de reset (opcional)
-Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
-
-// Definir umbrales de touch
-#define THRESHOLD 150 // Aumenta el umbral para reducir la sensibilidad
-
-// Pines touch asignados
-#define TEMP_SENSOR_PIN TOUCH_PAD_NUM8
-#define THERMO_SENSOR_PIN TOUCH_PAD_NUM9
-#define STEP_SENSOR_PIN TOUCH_PAD_NUM6
-
-// Pines de actuadores
-#define BUZZER_PIN 4
-#define VIBRATOR_PIN 5
-
-// Pines del sensor de temperatura
-#define TEMP_PIN 18
-#define DHTTYPE DHT11   // Define el tipo de sensor DHT
-
-// Variables para el contador de pasos
-int stepCount = 0;
-int threshold = 2500;  // Umbral más alto para evitar detecciones falsas 2800
-int lastZ = 0;
-int movingAverage = 0;
-const int numSamples = 5;
-int samples[numSamples];
-int sampleIndex = 0;
+const int16_t stepThreshold = 1000;  // Valor umbral para la detección de pasos
 bool stepDetected = false;
-unsigned long lastStepTime = 0;
-unsigned long stepDelay = 1000;  // Retardo mínimo entre pasos en milisegundos 1700
+int stepCount = 0;  // Variable para almacenar el número de pasos detectados
 
-// Variables para debounce
-unsigned long lastDebounceTimeStep = 0;
-unsigned long lastDebounceTimeTemp = 0;
-unsigned long lastDebounceTimeThermo = 0;
-const unsigned long debounceDelay = 500; // Aumenta el tiempo de debounce en ms
+// Vibrador
+const int vibradorPin = 26;
 
-// Estado del conteo de pasos y de los sensores
-bool stepSensorActive = false;
-bool tempSensorActive = false;
-bool thermoSensorActive = false;
 
-// Variables para almacenar los valores del sensor
-float tempValue = 0;
-float thermoValue = 0;
-
-// Buffer para almacenar las temperaturas recientes
-#define NUM_TEMP_VALUES 10
-float tempValues[NUM_TEMP_VALUES];
-float thermoValues[NUM_TEMP_VALUES];
-int tempIndex = 0;
-
-// Variables de tiempo para separar tareas
-unsigned long lastTempReadTime = 0;
-unsigned long lastStepReadTime = 0;
-const unsigned long tempReadInterval = 2000; // Intervalo para leer temperatura (en ms)
-const unsigned long stepReadInterval = 100;  // Intervalo para conteo de pasos (en ms)
+// MAX
+#define REPORTING_PERIOD_MS 5000
+PulseOximeter pox;
+uint32_t tsLastReport = 0;
+float lastBpm = NAN;
+float lastSpo2 = NAN;
 
 void setup() {
   Serial.begin(115200);
-
-   // Conectar a la red Wi-Fi
-  setup_wifi();
-
-    // Configurar el cliente MQTT
-  client.setServer(mqtt_server, 1883);
-
-  // Inicializar la pantalla OLED
-  if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
-    Serial.println(F("Error al inicializar la pantalla OLED"));
-    for(;;);
+  pinMode(buzzerPin, OUTPUT);
+  pinMode(clkPin, INPUT);
+  pinMode(dtPin, INPUT);
+  pinMode(swPin, INPUT_PULLUP); // Botón con pull-up interno
+  pinMode(vibradorPin, OUTPUT);
+  
+  // Configuración de la pantalla OLED
+  if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
+    Serial.println(F("Fallo en la inicialización de la pantalla OLED"));
+    for (;;);
   }
+  delay(100); 
   display.clearDisplay();
+  display.setTextSize(1);
+  display.setTextColor(SSD1306_WHITE);
 
-  // Inicializar los sensores
+  // Configuración WiFi y MQTT
+  setup_wifi();
+  client.setServer(mqtt_server, mqtt_port);
+  client.setCallback(callback);
+
+  // Configuración del bus I2C con los pines personalizados
+  Wire.begin(SDA_PIN, SCL_PIN);
+
+    // Intentar inicializar el sensor MLX90614
+  bool mlxConnected = false;
+  while (!mlxConnected) {
+    mlxConnected = mlx.begin();
+    if (!mlxConnected) {
+      Serial.println("Error al conectar el sensor MLX90614. Intentando de nuevo en 5 segundos...");
+      delay(5000); // Esperar 5 segundos antes de intentar de nuevo
+    } else {
+      Serial.println("Sensor MLX90614 conectado");
+    }
+  }
+
   dht.begin();
-  mlx.begin();
-  mpu.initialize();
+  setup_mpu();
+  setupMax();
 
-  // Inicializar el buffer de temperaturas y muestras para el filtro de promedio móvil
-  for(int i = 0; i < NUM_TEMP_VALUES; i++) {
-    tempValues[i] = 0.0;
-    thermoValues[i] = 0.0;
+  configTime(gmtOffset_sec, daylightOffset_sec, "pool.ntp.org");
+  
+  // Mostrar el menú inicial
+  drawMenu();
+
+  // Inicializar el estado del CLK
+  lastClkState = digitalRead(clkPin);
+}
+
+// Callback de MQTT
+void callback(char* topic, byte* payload, unsigned int length) {
+  String message;
+
+  for (int i = 0; i < length; i++) {
+    message += (char)payload[i];
   }
-  for (int i = 0; i < numSamples; i++) {
-    samples[i] = 0;
+
+  // Imprime el mensaje recibido para depuración
+  Serial.print("Mensaje recibido [");
+  Serial.print(topic);
+  Serial.print("]: ");
+  Serial.println(message);
+
+  // Asegúrate de que el mensaje es correctamente interpretado
+  if (String(topic) == mqtt_topic_buzzer) {
+    Serial.println("Tópico buzzer recibido.");
+    Serial.print("Mensaje de control del buzzer: ");
+    Serial.println(message);  // Imprime el mensaje para verificar su contenido
+
+    if (message == "ON") {
+      // Encender buzzer
+      digitalWrite(vibradorPin, HIGH);
+      Serial.println("Buzzer ON");
+    } else if (message == "OFF") {
+      // Apagar buzzer
+      digitalWrite(vibradorPin, LOW);
+      Serial.println("Buzzer OFF");
+    }
   }
-
-  // Configurar los pines del buzzer y el vibrador como salida
-  pinMode(BUZZER_PIN, OUTPUT);
-  pinMode(VIBRATOR_PIN, OUTPUT);
-
-  // Asegurarse de que el buzzer y el vibrador estén apagados al inicio
-  digitalWrite(BUZZER_PIN, LOW);
-  digitalWrite(VIBRATOR_PIN, LOW);
-
-  // Configurar los pines touch
-  touch_pad_init();
-  touch_pad_config(TEMP_SENSOR_PIN, THRESHOLD);
-  touch_pad_config(THERMO_SENSOR_PIN, THRESHOLD);
-  touch_pad_config(STEP_SENSOR_PIN, THRESHOLD);
-
-  // Mostrar mensaje inicial "Wearable Fit" en la pantalla
-  mostrarMensajeInicial();
-
-   // Conectar al broker MQTT
-  reconnect();
 }
 
 void loop() {
-  // Asegurarse de que el cliente MQTT esté conectado
   if (!client.connected()) {
     reconnect();
   }
   client.loop();
 
-  // Leer el estado de los pines táctiles
-  verificarToqueStep();
-  verificarToqueTemp();
-  verificarToqueThermo();
+  if (inMenu) {
+    // Leer el estado actual del CLK
+    int currentClkState = digitalRead(clkPin);
+    if (currentClkState != lastClkState) { // Cambio detectado
+      if (digitalRead(dtPin) != currentClkState) {
+        currentSelection = (currentSelection + 1) % menuLength; // Siguiente
+      } else {
+        currentSelection = (currentSelection - 1 + menuLength) % menuLength; // Anterior
+      }
+      drawMenu();
+    }
+    lastClkState = currentClkState;
+  }
 
-  // Separar la lógica de lectura de temperatura y conteo de pasos
-  unsigned long currentMillis = millis();
+  // Leer el botón integrado del encoder
+  if (digitalRead(swPin) == LOW && !buttonPressed) {
+    buttonPressed = true;
+    delay(200); // Debounce del botón
 
-  // Leer y mostrar temperatura a intervalos definidos
-  if (currentMillis - lastTempReadTime >= tempReadInterval) {
-    lastTempReadTime = currentMillis;
-    if (tempSensorActive) {
-      mostrarTemperatura();
-    } else if (thermoSensorActive) {
-      mostrarTermometro();
+    if (inMenu) {
+      // Si estamos en el menú, ejecutar la selección
+      executeSelection();
+      inMenu = false; // Cambiar al estado de visualización
+    } else {
+      // Si estamos mostrando una opción, volver al menú
+      drawMenu();
+      inMenu = true; // Cambiar al estado de menú
     }
   }
 
-  // Leer y mostrar conteo de pasos a intervalos definidos
-  if (currentMillis - lastStepReadTime >= stepReadInterval) {
-    lastStepReadTime = currentMillis;
-    if (stepSensorActive) {
-      mostrarConteoPasos();
-    }
+  // Liberar el botón
+  if (digitalRead(swPin) == HIGH && buttonPressed) {
+    buttonPressed = false;
   }
 
-  // Publicar los valores de los sensores
-  publicarValoresSensores();
+  unsigned long currentTime = millis();
+  if (currentTime - lastPublishTime >= publishInterval) {
+    lastPublishTime = currentTime;
+    read_and_publish_sensors();
+    publishPoxData();
+    read_and_publish_pot_button();
+  }
+  detect_and_publish_steps();
 
-  // Mostrar mensaje inicial si ningún sensor está activo
-  if (!stepSensorActive && !tempSensorActive && !thermoSensorActive) {
-    mostrarMensajeInicial();
+  // Actualiza la pantalla constantemente si se está visualizando temperatura o pasos
+  if (!inMenu && (currentSelection == 0 || currentSelection == 1)) {
+    executeSelection();  // Actualiza la pantalla con los valores actuales de temperatura/humedad o temperatura IR
   }
 
-  delay(10); // Pequeño retardo para estabilizar
+  // Puedes ajustar este delay para mejorar la respuesta
+  delay(10);
 }
 
 void setup_wifi() {
@@ -198,335 +248,284 @@ void setup_wifi() {
   }
 
   Serial.println("");
-  Serial.println("WiFi conectado");
+  Serial.println("Conectado a la red WiFi");
+  Serial.print("Dirección IP: ");
+  Serial.println(WiFi.localIP());
 }
 
 void reconnect() {
-  // Solo intentamos reconectar si no estamos conectados
-  if (client.connected()) {
-    return;
-  }
-
-  // Loop hasta que estemos conectados
   while (!client.connected()) {
-    Serial.print("Conectando al broker MQTT...");
-    // Intentar conectarse
+    Serial.print("Conectando a MQTT...");
     if (client.connect("ESP32Client")) {
-      Serial.println("conectado");
+      Serial.println("Conectado al broker MQTT");
+
+      // Intenta suscribirte al tópico y muestra el resultado
+      client.subscribe(mqtt_topic_buzzer);
+
     } else {
-      Serial.print("fallido, rc=");
+      Serial.print("Fallo de conexión, rc=");
       Serial.print(client.state());
-      Serial.println(" Intentando nuevamente en 5 segundos");
+      Serial.println(" intentamos de nuevo en 5 segundos");
       delay(5000);
     }
   }
 }
 
-float lastSentTempValue = 0.0;
-float lastSentThermoValue = 0.0;
-int lastSentStepCount = 0;
-
-void publicarValoresSensores() {
-   // Verificar y publicar la temperatura desde DHT11
-   if (tempSensorActive) {
-       float tempDHT11 = dht.readTemperature();
-       if (!isnan(tempDHT11) && tempDHT11 != lastSentTempValue) {
-           lastSentTempValue = tempDHT11;
-           char tempStr[8];
-           dtostrf(tempDHT11, 6, 2, tempStr);
-           client.publish("sensor/temperature/dht11", tempStr);
-       }
-   }
-
-   // Verificar y publicar la temperatura desde MLX90614
-   if (thermoSensorActive) {
-       float tempMLX90614 = mlx.readObjectTempC();
-       if (!isnan(tempMLX90614) && tempMLX90614 != lastSentThermoValue) {
-           lastSentThermoValue = tempMLX90614;
-           char tempStr[8];
-           dtostrf(tempMLX90614, 6, 2, tempStr);
-           client.publish("sensor/temperature/mlx90614", tempStr);
-       }
-   }
-
-   // Verificar y publicar los pasos desde MPU6050
-   if (stepSensorActive) {
-       int steps = stepCount;
-       if (steps != lastSentStepCount) {
-           lastSentStepCount = steps;
-           char stepsStr[8];
-           itoa(steps, stepsStr, 10);
-           client.publish("sensor/steps", stepsStr);
-       }
-   }
-}
-
-/*
-void publicarValoresSensores() {
-  // Leer temperatura desde DHT11
-  float tempDHT11 = dht.readTemperature();
-  if (!isnan(tempDHT11)) {
-    char tempStr[8];
-    dtostrf(tempDHT11, 6, 2, tempStr);
-    client.publish("sensor/temperature/dht11", tempStr);
-  }
-
-  // Leer temperatura desde MLX90614
-  float tempMLX90614 = mlx.readObjectTempC();
-  if (!isnan(tempMLX90614)) {
-    char tempStr[8];
-    dtostrf(tempMLX90614, 6, 2, tempStr);
-    client.publish("sensor/temperature/mlx90614", tempStr);
-  }
-
-  // Leer pasos desde MPU6050
-  int steps = stepCount;  // Usar tu variable de conteo de pasos
-  char stepsStr[8];
-  itoa(steps, stepsStr, 10);
-  client.publish("sensor/steps", stepsStr);
-}
-*/
-// Función para verificar el estado del sensor de conteo de pasos
-void verificarToqueStep() {
-  uint16_t touchValue;
-  touch_pad_read(STEP_SENSOR_PIN, &touchValue);
-
-  if (touchValue < THRESHOLD) {
-    if ((millis() - lastDebounceTimeStep) > debounceDelay) {
-      stepSensorActive = !stepSensorActive; // Cambiar estado del sensor
-      lastDebounceTimeStep = millis();
-
-      if (stepSensorActive) {
-        Serial.println("Conteo de pasos activado");
-        tempSensorActive = false;  // Desactivar otros sensores
-        thermoSensorActive = false;
-      } else {
-        Serial.println("Conteo de pasos desactivado");
-      }
+void read_and_publish_pot_button() {
+  // Leer el estado actual del CLK
+  int currentClkState = digitalRead(clkPin);
+  
+    // Detectar la dirección de rotación comparando CLK con DT
+    if (digitalRead(dtPin) != currentClkState) {
+      potValue++; // Incrementar el valor del potenciómetro si se gira en una dirección
+    } else {
+      potValue--; // Decrementar el valor del potenciómetro si se gira en la otra dirección
     }
-  }
+
+    Serial.print("Potenciometro: ");
+    Serial.println(potValue);
+    client.publish(mqtt_topic_pot, String(potValue).c_str());
+    lastPotValue = potValue;
+  // Actualizar el estado del CLK
+    lastClkState = currentClkState;
+
 }
 
-// Función para verificar el estado del sensor de temperatura DHT11
-void verificarToqueTemp() {
-  uint16_t touchValue;
-  touch_pad_read(TEMP_SENSOR_PIN, &touchValue);
+// Variables globales para el buzzer
+unsigned long buzzerOnTime = 0;
+bool buzzerState = false;
+const unsigned long buzzerInterval = 500; // Intervalo para alternar el buzzer (500 ms)
 
-  if (touchValue < THRESHOLD) {
-    if ((millis() - lastDebounceTimeTemp) > debounceDelay) {
-      tempSensorActive = !tempSensorActive; // Cambiar estado del sensor
-      lastDebounceTimeTemp = millis();
+void read_and_publish_sensors() {
+  float humidity = dht.readHumidity();
+  float temperature = dht.readTemperature(); // Celsius
+  float mlxTemp = mlx.readObjectTempC(); // Celsius
 
-      // Desactivar el otro sensor si está activo
-      if (tempSensorActive) {
-        stepSensorActive = false;
-        thermoSensorActive = false;
-        Serial.println("Sensor de temperatura activado");
-      } else {
-        Serial.println("Sensor de temperatura desactivado");
-      }
+  Serial.println(temperature);
+  Serial.println(humidity);
+  Serial.println(mlxTemp);
+
+  // Gestión del buzzer
+  if (mlxTemp >= 30) {
+    unsigned long currentMillis = millis();
+    
+    if (!buzzerState) {
+      // Encender el buzzer
+      digitalWrite(buzzerPin, HIGH);
+      buzzerState = true;
+      buzzerOnTime = currentMillis; // Marca el momento en que se encendió el buzzer
+    } else if (currentMillis - buzzerOnTime >= buzzerInterval) {
+      // Apagar el buzzer
+      digitalWrite(buzzerPin, LOW);
+      buzzerState = false;
     }
+  } else {
+    // Si la temperatura es menor a 30°C, apaga el buzzer
+    digitalWrite(buzzerPin, LOW);
+    buzzerState = false;
   }
+
+  // Publicar datos en MQTT
+  client.publish(mqtt_topic_dht11_temperatura, String(temperature).c_str());
+  client.publish(mqtt_topic_dht11_humedad, String(humidity).c_str());
+  client.publish(mqtt_topic_mlx, String(mlxTemp).c_str());
 }
 
-// Función para verificar el estado del termómetro
-void verificarToqueThermo() {
-  uint16_t touchValue;
-  touch_pad_read(THERMO_SENSOR_PIN, &touchValue);
+// Variables globales para el vibrador
+unsigned long vibrateStartTime = 0;
+bool vibrateState = false;
+const unsigned long vibrateDuration = 500; // Duración del vibrador (500 ms)
 
-  if (touchValue < THRESHOLD) {
-    if ((millis() - lastDebounceTimeThermo) > debounceDelay) {
-      thermoSensorActive = !thermoSensorActive; // Cambiar estado del sensor
-      lastDebounceTimeThermo = millis();
+void detect_and_publish_steps() {
+  // Lee los valores del sensor MPU6050
+  int16_t ax, ay, az;
+  mpu.getAcceleration(&ax, &ay, &az);
 
-      // Desactivar el otro sensor si está activo
-      if (thermoSensorActive) {
-        stepSensorActive = false;
-        tempSensorActive = false;
-        Serial.println("Termómetro activado");
-      } else {
-        Serial.println("Termómetro desactivado");
-      }
-    }
-  }
-}
-
-// Añadir el buffer para almacenar el histórico del conteo de pasos
-#define NUM_STEP_VALUES 10
-int stepValues[NUM_STEP_VALUES];
-int stepIndex = 0;
-
-// Función para mostrar el conteo de pasos en la pantalla OLED
-void mostrarConteoPasos() {
-  // Variables para almacenar los datos del giroscopio
-  int16_t gx, gy, gz;
-
-  // Leer los datos del giroscopio
-  mpu.getRotation(&gx, &gy, &gz);
-
-  // Actualizar el filtro de promedio móvil
-  movingAverage -= samples[sampleIndex];
-  samples[sampleIndex] = gz;
-  movingAverage += samples[sampleIndex];
-  sampleIndex = (sampleIndex + 1) % numSamples;
-
-  int filteredZ = movingAverage / numSamples;
-
-  // Obtener el tiempo actual
-  unsigned long currentTime = millis();
-
-  // Implementar la lógica para contar pasos basados en el eje Z del giroscopio
-  if (abs(filteredZ - lastZ) > threshold && !stepDetected) {
-    if (currentTime - lastStepTime > stepDelay) {
-      stepCount++;
+  // Verifica si se ha detectado un paso
+  if (abs(ax) > stepThreshold) {
+    if (!stepDetected) {
       stepDetected = true;
-      lastStepTime = currentTime;
-      Serial.print("Conteo de pasos: ");
-      Serial.println(stepCount);
+      stepCount++;
+      
+      // Publica el conteo total de pasos como una cadena
+      client.publish(mqtt_topic_steps, String(stepCount).c_str());
 
-      // Activar el buzzer y el vibrador cada 5 pasos
-      if (stepCount % 5 == 0) {
-        digitalWrite(BUZZER_PIN, HIGH);
-        digitalWrite(VIBRATOR_PIN, HIGH);
-        delay(3000);  // Mantener el buzzer y vibrador activos por 3000 ms
-        digitalWrite(BUZZER_PIN, LOW);
-        digitalWrite(VIBRATOR_PIN, LOW);
+      // Actualiza la pantalla OLED para mostrar los pasos
+      if (currentSelection == 2 && !inMenu) {
+        executeSelection();  // Actualiza la pantalla si está en la opción de pasos
       }
 
-      // Almacenar el conteo de pasos en el buffer
-      stepValues[stepIndex] = stepCount;
-      stepIndex = (stepIndex + 1) % NUM_STEP_VALUES;
-    }
-  }
+      // Si el número de pasos es un múltiplo de 5, activa el vibrador
+      if (stepCount % 5 == 0) {
+        digitalWrite(vibradorPin, HIGH);
+        vibrateState = true;
+        vibrateStartTime = millis(); // Marca el momento en que se encendió el vibrador
 
-  // Restablecer la detección de paso cuando el valor cae por debajo del umbral
-  if (abs(filteredZ - lastZ) < threshold) {
+        // Imprime el conteo de pasos y alerta para depuración
+        Serial.print("Pasos detectados: ");
+        Serial.println(stepCount);
+        Serial.println("Alerta: Múltiplo de 5 pasos detectado");
+      }
+    }
+  } else {
     stepDetected = false;
   }
 
-  // Guardar el último valor de Z para la siguiente iteración
-  lastZ = filteredZ;
+  // Desactiva el vibrador después de la duración establecida
+  if (vibrateState && (millis() - vibrateStartTime >= vibrateDuration)) {
+    digitalWrite(vibradorPin, LOW);
+    vibrateState = false;
+    Serial.println("Vibrador apagado");
+  }
+}
 
-  // Mostrar el conteo de pasos y la gráfica en la pantalla OLED
+
+void drawMenu() {
   display.clearDisplay();
+
+  // Mostrar el título "Wearable Fit"
   display.setTextSize(1);
   display.setTextColor(SSD1306_WHITE);
   display.setCursor(0, 0);
-  display.print("Conteo de pasos: ");
-  display.print(stepCount);
+  display.println("Wearable Fit");
 
-  // Dibujar la gráfica de pasos
-  dibujarGraficaPasos(stepValues);
+  // Obtener el ancho del texto "Wearable Fit"
+  int16_t titleX1, titleY1;
+  uint16_t titleWidth, titleHeight;
+  display.getTextBounds("Wearable Fit | ", 0, 0, &titleX1, &titleY1, &titleWidth, &titleHeight);
+  
+  // Mostrar la hora actual a la derecha del título
+  display.setCursor(titleWidth + 2, 0); // 2 píxeles de margen a la derecha
+  display.println(getFormattedTime());
+
+  // Mostrar el menú debajo del título y la hora
+  for (int i = 0; i < menuLength; i++) {
+    display.setCursor(0, (i + 2) * 10); // Ajusta la posición vertical
+    if (i == currentSelection) {
+      display.setTextColor(SSD1306_BLACK, SSD1306_WHITE); // Selección resaltada
+    } else {
+      display.setTextColor(SSD1306_WHITE);
+    }
+    display.println(menuItems[i]);
+  }
 
   display.display();
 }
 
-// Función para dibujar la gráfica de pasos en la pantalla OLED
-void dibujarGraficaPasos(int values[]) {
-  int maxBarHeight = 20;
-  int barWidth = 10;
-  int xOffset = 10;
-  int yOffset = SCREEN_HEIGHT - maxBarHeight - 10;
-
-  for (int i = 0; i < NUM_STEP_VALUES; i++) {
-    int barHeight = map(values[i], 0, stepCount, 0, maxBarHeight); // Ajusta el rango según sea necesario
-    int x = xOffset + i * (barWidth + 2);
-    int y = yOffset + (maxBarHeight - barHeight);
-    display.fillRect(x, y, barWidth, barHeight, SSD1306_WHITE);
+String getFormattedTime() {
+  time_t now;
+  struct tm timeinfo;
+  if (!getLocalTime(&timeinfo)) {
+    Serial.println("Fallo al obtener la hora");
+    return "00:00";  // Valor por defecto si falla
   }
+  char buffer[10];
+  strftime(buffer, sizeof(buffer), "%H:%M", &timeinfo);
+  return String(buffer);
 }
 
-// Función para leer y mostrar los valores del sensor DHT11 en la pantalla OLED
-void mostrarTemperatura() {
-  tempValue = leerTemperatura();
-
-  // Almacenar el valor en el buffer
-  tempValues[tempIndex] = tempValue;
-  tempIndex = (tempIndex + 1) % NUM_TEMP_VALUES;
-
+void executeSelection() {
   display.clearDisplay();
-  display.setTextSize(1);
-  display.setTextColor(SSD1306_WHITE);
   display.setCursor(0, 0);
-  display.print("Temp DHT11: ");
-  display.print(tempValue);
-  display.print(" C");
 
-  // Dibujar la gráfica
-  dibujarGraficaTemperatura(tempValues);
+  if (currentSelection == 0) {
+    display.println("Temp y Hum:");
 
-  display.display();
-}
+    // Leer los valores de temperatura y humedad
+    float humidity = dht.readHumidity();
+    float temperature = dht.readTemperature();
 
-// Función para leer y mostrar los valores del termómetro en la pantalla OLED
-void mostrarTermometro() {
-  thermoValue = leerTermometro();
+    // Verificar si las lecturas son válidas
+    if (isnan(humidity) || isnan(temperature)) {
+      display.println("Error al leer sensores");
+    } else {
+      // Mostrar temperatura
+      display.print("Temp: ");
+      display.print(temperature);
+      display.print(" C");
 
-  // Almacenar el valor en el buffer
-  thermoValues[tempIndex] = thermoValue;
-  tempIndex = (tempIndex + 1) % NUM_TEMP_VALUES;
-
-  display.clearDisplay();
-  display.setTextSize(1);
-  display.setTextColor(SSD1306_WHITE);
-  display.setCursor(0, 0);
-  display.print("Termometro: ");
-  display.print(thermoValue);
-  display.print(" C");
-
-  // Dibujar la gráfica
-  dibujarGraficaTemperatura(thermoValues);
-
-  display.display();
-}
-
-// Función para dibujar una gráfica de barras de la temperatura
-void dibujarGraficaTemperatura(float values[]) {
-  int maxBarHeight = 20;
-  int barWidth = 10;
-  int xOffset = 10;
-  int yOffset = SCREEN_HEIGHT - maxBarHeight - 10;
-
-  for (int i = 0; i < NUM_TEMP_VALUES; i++) {
-    int barHeight = map(values[i], 0, 40, 0, maxBarHeight); // Ajusta el rango de temperatura según sea necesario
-    int x = xOffset + i * (barWidth + 2);
-    int y = yOffset + (maxBarHeight - barHeight);
-    display.fillRect(x, y, barWidth, barHeight, SSD1306_WHITE);
+      // Mover el cursor a la línea siguiente para humedad
+      display.setCursor(0, 16); // Ajusta la posición vertical para que esté debajo de la temperatura
+      display.print("Hum: ");
+      display.print(humidity);
+      display.print(" %");
+    }
+  } else if (currentSelection == 1) {
+    display.println("Temp IR:");
+    float mlxTemp = mlx.readObjectTempC();
+    display.print("Temp IR: ");
+    display.print(mlxTemp);
+    display.print(" C");
+  } else if (currentSelection == 2) {
+    display.println("Pasos:");
+    display.print("Total pasos: ");
+    display.print(stepCount);  // Asegúrate de que se muestra el conteo de pasos actual
+  } else if (currentSelection == 3) { // Nueva opción para MAX30100
+    display.println("Pulsos y Oximetro:");
+    display.print("Pulso: ");
+    display.print(lastBpm); // Usa la última lectura almacenada
+    display.print("Oximetro: ");
+    display.print(lastSpo2); // Usa la última lectura almacenada
   }
+
+  display.display();  // Asegúrate de que la pantalla se actualiza
 }
 
-// Función para mostrar mensaje "Wearable Fit" en la pantalla OLED
-void mostrarMensajeInicial() {
-  display.clearDisplay();
-  display.setTextSize(2);
-  display.setTextColor(SSD1306_WHITE);
-  display.setCursor(10, 20);
-  display.print("Wearable");
-  display.setCursor(40, 40);
-  display.print("Fit");
-  display.display();
-}
+void setup_mpu() {
+  // Inicializar el MPU6050
+  mpu.initialize();
 
-// Función para leer el valor del sensor de temperatura DHT11
-float leerTemperatura() {
-  float t = dht.readTemperature();  // Lee la temperatura en grados Celsius
-  
-  if (isnan(t)) {
-    Serial.println("Error al leer del sensor DHT!");
-    return 0.0;
+  // Verificar si el MPU6050 está conectado correctamente
+  if (!mpu.testConnection()) {
+    Serial.println("Error: MPU6050 no conectado. Esperando 5 segundos...");
+    delay(5000);  // Esperar 5 segundos antes de volver a intentar
+  } else {
+    Serial.println("MPU6050 conectado");
   }
-  
-  return t;
+
+  // Configurar la sensibilidad del MPU6050 (opcional)
+  mpu.setFullScaleAccelRange(MPU6050_ACCEL_FS_2); // ±2g
+  mpu.setFullScaleGyroRange(MPU6050_GYRO_FS_250); // ±250°/s
 }
 
-// Función para leer el valor del termómetro MLX90614
-float leerTermometro() {
-  float t = mlx.readObjectTempC();  // Lee la temperatura del objeto en grados Celsius
-  
-  if (isnan(t)) {
-    Serial.println("Error al leer del termómetro!");
-    return 0.0;
+void onBeatDetected() {
+  Serial.println("Beat!");
+}
+
+void setupMax(){
+  if (!pox.begin()) {
+    Serial.println("FAILED");
+    for (;;);
+  } else {
+    Serial.println("SUCCESS");
   }
+
+  pox.setIRLedCurrent(MAX30100_LED_CURR_7_6MA);
+  pox.setOnBeatDetectedCallback(onBeatDetected);
+}
+
+void publishPoxData() {
+  pox.update();
   
-  return t;
+  if (millis() - tsLastReport > REPORTING_PERIOD_MS) {
+    float bpm = pox.getHeartRate();
+    float spo2 = pox.getSpO2();
+
+    if (!isnan(bpm) && !isnan(spo2)) {
+      lastBpm = bpm;
+      lastSpo2 = spo2;
+      Serial.print("Heart rate: ");
+      Serial.print(valueBpm);
+      Serial.print(" bpm / SpO2: ");
+      Serial.print(valuePox);
+      Serial.println(" %");
+
+      client.publish(mqtt_topic_bpm, String(bpm).c_str());
+      client.publish(mqtt_topic_pox, String(spo2).c_str());
+
+      tsLastReport = millis();
+    } else {
+      Serial.println("Error al leer el sensor MAX30100");
+    }
+  }
 }
