@@ -115,5 +115,7 @@ Para el siguiente split, se espera seguir con los mismos resultados obtenidos ha
 </p>
 
 ## Carta de agradecimiento
-![Imagen de WhatsApp 2024-08-28 a las 14 04 59_055fc3b5](https://github.com/user-attachments/assets/c2dc6145-7573-4cac-848e-641b855768f6)
+![Imagen de WhatsApp 2024-08-26 a las 12 21 55_62ce5f07](https://github.com/user-attachments/assets/af240148-b9ad-4d15-a0f6-7926cca76d5a)
+
+## Video mostrando el proyecto
 
