@@ -120,4 +120,5 @@ Para el siguiente split, se espera seguir con los mismos resultados obtenidos ha
 ![Imagen de WhatsApp 2024-08-26 a las 12 21 55_62ce5f07](https://github.com/user-attachments/assets/af240148-b9ad-4d15-a0f6-7926cca76d5a)
 
 ## Video mostrando el proyecto
+[video de agradecimiento](https://drive.google.com/file/d/1fgn8PI5p78b-DOR3aJ8Lql8_4v2Fnp7q/view?usp=drive_link)
 
