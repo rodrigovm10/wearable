@@ -106,6 +106,10 @@ El objetivo general del proyecto Wearable Fit es desarrollar un dispositivo wear
 ![Requisito 3](https://github.com/rodrigovm10/wearable/assets/104101668/dc430b0a-ed7c-4b42-a138-0944aacae749)
 ### Sensor Acelerometro
 ![image](https://github.com/rodrigovm10/wearable/assets/104101668/7484440d-d164-42e7-a53d-ae048272bd34)
+### Sensor de temperatura y humedad 
+![image](https://github.com/user-attachments/assets/75a8d694-f3af-40f1-b690-1599cd9d8262)
+
+
 
 ## Resultados
 <p align="justify">
