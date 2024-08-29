@@ -126,6 +126,8 @@ Dentro de los primeros dos requisitos se cumplio la funcionalidad de alertar en 
 Dentro del tercer requisito se consiguio obtener la temperatura, dentro de este requisito se tuvo que soldar los pines al sensor, por lo que fue más tardado de cumplir. Además el soldado no quedo como el esperado por lo que se encuentra flojo, pero se espera corregir esta parte.
 
 Para el siguiente split, se espera seguir con los mismos resultados obtenidos hasta el momento y que todo sea satisfactorio.
+
+En el último split los resultados no fueron los mejores, pero se consiguio terminar el proyecto. A pesar de las diferentes trabas que hubo se consiguio el objetivo. Lo más complicado sin duda fue la comunicación de MQTT, ya que tener diferentes sensores enviando datos era algo lento y tedioso, pero se consiguio el resultado y en ello se ve el esfuerzo puesto en el proyecto y en el video de demostración.
 </p>
 
 ## Carta de agradecimiento
