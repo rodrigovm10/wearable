@@ -118,8 +118,6 @@ El objetivo general del proyecto Wearable Fit es desarrollar un dispositivo wear
 <img src="https://github.com/user-attachments/assets/6338401b-d3ed-437b-95e3-68220fa77560" alt="Potenciómetro y OLED" width="600" style="display:block; margin:auto;"/>
 
 
-
-
 ## Resultados
 <p align="justify">
 Los resultados obtenidos hasta el momento han sido satisfactorios. En los primeros tres requisitos, o en el primer Split, se han cumplido las expectativas previstas.
@@ -138,6 +136,13 @@ En el último split los resultados no fueron los mejores, pero se consiguio term
 [Video Wearable Fit](https://drive.google.com/file/d/1l205OfwFnMJzpUFPbZxNn3izrPtvoUTY/view?usp=sharing)
 ## Video de agradecimiento 
 [Video de agradecimiento](https://drive.google.com/file/d/1fgn8PI5p78b-DOR3aJ8Lql8_4v2Fnp7q/view?usp=drive_link)
+## Resultado del proyecto
+![Imagen de WhatsApp 2024-08-29 a las 17 12 35_3e569b8e](https://github.com/user-attachments/assets/2eb52fe7-b933-4393-ad0a-dbc34674911c)
+![Imagen de WhatsApp 2024-08-29 a las 17 12 38_07c4e372](https://github.com/user-attachments/assets/16312d8d-6522-4bc1-afbc-5efa680cf6de)
+![Imagen de WhatsApp 2024-08-29 a las 17 12 34_5d99817f](https://github.com/user-attachments/assets/c0ea8218-c384-4c96-a74b-5bbf0644cda5)
+
+
+
 
 ## Código Dashboard
 [Dashboard Flutter](https://github.com/rodrigovm10/wearable_fit/tree/main)
@@ -158,8 +163,7 @@ En el último split los resultados no fueron los mejores, pero se consiguio term
 ![Imagen de WhatsApp 2024-08-29 a las 00 59 40_4d0a6b10](https://github.com/user-attachments/assets/443a98eb-b348-4c09-bcf5-d0e96de783fe)
 ![Imagen de WhatsApp 2024-08-29 a las 00 59 49_e0c0b76a](https://github.com/user-attachments/assets/6198f841-1c05-4868-b5e8-148565aca44a)
 
-
-
+ 
 
 
 
